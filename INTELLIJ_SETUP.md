@@ -49,26 +49,55 @@ jdbc:mysql://localhost:3306/caravan_research?useSSL=false&serverTimezone=UTC
 
 ## Running the Application in IntelliJ
 
-### Option 1: Using Maven
+### ⭐ Recommended: Use Pre-configured Run Configurations
+
+Two run configurations have been created for you in `.idea/runConfigurations/`:
+
+#### 1. **Caravan Research - Spring Boot** (Standalone Mode)
+- Runs as embedded Spring Boot application
+- Automatically opens Chrome at http://localhost:8080
+- Hot reload enabled (Update Classes and Resources)
+- Fastest startup time
+- **To Run**: Select from run configurations dropdown → Click Run
+
+#### 2. **Caravan Research - Tomcat 10** (WAR Deployment)
+- Deploys exploded WAR to local Tomcat 10 server
+- Opens Chrome at http://localhost:8080/caravan-research
+- Tests actual Tomcat deployment
+- Requires Tomcat 10 configured in IntelliJ
+- **To Run**: Select from run configurations dropdown → Click Run
+
+### Option 1: Using Pre-configured Run Configuration (Recommended)
+1. In the toolbar, find the run configurations dropdown (top-right)
+2. Select **"Caravan Research - Spring Boot"**
+3. Click the green **Run** button (▶️) or press `Shift + F10`
+4. Chrome will automatically open to http://localhost:8080
+
+### Option 2: Using Maven
 1. Open the **Maven** tool window (View → Tool Windows → Maven)
 2. Expand **caravan-research** → **Plugins** → **spring-boot**
 3. Double-click **spring-boot:run**
+4. Manually open http://localhost:8080 in browser
 
-### Option 2: Run Main Class
+### Option 3: Run Main Class Directly
 1. Navigate to `src/main/java/com/caravan/CaravanResearchApplication.java`
 2. Right-click on the file
 3. Select **Run 'CaravanResearchApplication'**
 4. Or click the green play button in the gutter next to the main method
+5. Manually open http://localhost:8080 in browser
 
-### Option 3: Using Run Configuration
+### Option 4: Create Custom Run Configuration
+If you need to customize settings:
 1. Go to **Run** → **Edit Configurations**
 2. Click **+** → **Spring Boot**
 3. Configure:
-   - **Name**: `Caravan Research`
+   - **Name**: `Caravan Research - Custom`
    - **Main class**: `com.caravan.CaravanResearchApplication`
-   - **Working directory**: `/Users/oweinmann/Workspace/Campers`
+   - **Working directory**: `$PROJECT_DIR$`
    - **JRE**: Java 11 or higher
-4. Click **OK** and run
+   - **Environment variables**: (optional)
+4. **Before launch**: Add "Build" task
+5. Click **OK** and run
 
 ## Accessing the Application
 

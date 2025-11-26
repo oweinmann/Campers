@@ -8,22 +8,22 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.14</version>
+        <version>3.2.0</version>
         <relativePath/>
     </parent>
 
     <groupId>com.caravan</groupId>
     <artifactId>caravan-research</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>Caravan Research Application</name>
-    <description>Australian Off-Road Caravan Research and Comparison Tool</description>
+    <description>Australian Off-Road Caravan Research - Tomcat 10 Web Application</description>
 
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -42,10 +42,24 @@
 
         <!-- MySQL Connector -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- Spring Boot Tomcat (provided for Tomcat deployment) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Jakarta Servlet API for Tomcat 10 -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Spring Boot Starter Validation -->
@@ -76,16 +90,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- H2 Database for testing -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
+        <finalName>caravan-research</finalName>
         <plugins>
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -96,6 +106,27 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- Maven WAR Plugin for Tomcat 10 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
         </plugins>

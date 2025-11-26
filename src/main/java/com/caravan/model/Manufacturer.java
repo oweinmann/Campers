@@ -1,16 +1,11 @@
 package com.caravan.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
-
-/**
- * Entity representing a Caravan Manufacturer
- */
 @Entity
 @Table(name = "manufacturers")
 @Data
@@ -30,32 +25,14 @@ public class Manufacturer {
     @Column(nullable = false)
     private String origin; // Australian Made or Imported
 
-    @Column(length = 500)
     private String website;
 
-    @Column(length = 500)
+    @Column(name = "known_for")
     private String knownFor;
 
-    @Column(length = 500)
+    @Column(name = "key_models")
     private String keyModels;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String notes;
-
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

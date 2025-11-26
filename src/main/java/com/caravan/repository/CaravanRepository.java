@@ -3,14 +3,12 @@ package com.caravan.repository;
 import com.caravan.model.Caravan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * Repository for Caravan entity
- */
 @Repository
 public interface CaravanRepository extends JpaRepository<Caravan, Long> {
 
@@ -25,8 +23,5 @@ public interface CaravanRepository extends JpaRepository<Caravan, Long> {
     List<Caravan> findByDeletedFalseAndPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
 
     @Query("SELECT c FROM Caravan c WHERE c.deleted = false AND c.bunkBeds >= :minBunkBeds")
-    List<Caravan> findByMinimumBunkBeds(Integer minBunkBeds);
-
-    @Query("SELECT c FROM Caravan c WHERE c.deleted = false AND c.price <= :maxPrice")
-    List<Caravan> findByMaxPrice(BigDecimal maxPrice);
+    List<Caravan> findByMinimumBunkBeds(@Param("minBunkBeds") Integer minBunkBeds);
 }

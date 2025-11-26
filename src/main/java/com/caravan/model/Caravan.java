@@ -1,18 +1,15 @@
 package com.caravan.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Entity representing a Caravan
- */
 @Entity
 @Table(name = "caravans")
 @Data
@@ -40,42 +37,41 @@ public class Caravan {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Column(length = 500)
     private String website;
 
     // Dimensions
-    private String externalLength; // e.g., "4.88m / 16ft"
+    @Column(name = "external_length")
+    private String externalLength;
+
+    @Column(name = "external_width")
     private String externalWidth;
+
+    @Column(name = "external_height")
     private String externalHeight;
+
+    @Column(name = "internal_height")
     private String internalHeight;
 
     // Weight specifications
-    private Integer tareWeight; // kg
-    private Integer atm; // Aggregate Trailer Mass (kg)
-    private Integer ballWeight; // kg
-    private Integer gtm; // Gross Trailer Mass (kg)
+    @Column(name = "tare_weight")
+    private Integer tareWeight;
 
-    // Configuration
-    private String axleConfig; // Single or Twin
-    private Integer axleCount;
+    private Integer atm; // Aggregate Trailer Mass
 
-    // Power & Water
-    private String solarPanels; // e.g., "300W"
-    private String batteryCapacity; // e.g., "200Ah Lithium"
-    private Integer freshWaterCapacity; // Liters
-    private Integer greyWaterCapacity; // Liters
+    @Column(name = "ball_weight")
+    private Integer ballWeight;
+
+    private Integer gtm; // Gross Trailer Mass
 
     // Sleeping arrangements
-    private String mainBed; // e.g., "Queen"
+    @Column(name = "main_bed")
+    private String mainBed;
+
+    @Column(name = "bunk_beds")
     private Integer bunkBeds;
-    private String bunkType; // e.g., "2x Singles"
 
-    // Features
-    @Column(length = 1000)
-    private String features;
-
-    @Column(length = 2000)
-    private String notes;
+    @Column(name = "bunk_type")
+    private String bunkType;
 
     @Enumerated(EnumType.STRING)
     private Priority priority;
@@ -83,6 +79,13 @@ public class Caravan {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(columnDefinition = "TEXT")
+    private String features;
+
+    @Column(columnDefinition = "TEXT")
+    private String notes;
+
+    @Column(nullable = false)
     private Boolean deleted = false;
 
     @Column(name = "created_at", updatable = false)
@@ -95,6 +98,9 @@ public class Caravan {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
+        if (deleted == null) {
+            deleted = false;
+        }
     }
 
     @PreUpdate

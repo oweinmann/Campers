@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Main Spring Boot Application class for Caravan Research Application
+ * Main Spring Boot Application for Caravan Research
+ * Supports both standalone and Tomcat 10 deployment
  */
 @SpringBootApplication
 public class CaravanResearchApplication {

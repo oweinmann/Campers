@@ -1,0 +1,172 @@
+<div>
+    <h2>🆚 Caravan Comparison</h2>
+
+    <!-- Instructions -->
+    <div class="alert alert-info">
+        <strong>How to compare:</strong> Select up to 5 caravans from the list below to compare side-by-side.
+    </div>
+
+    <!-- Caravan Selection -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5>Select Caravans to Compare</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Available Caravans</label>
+                    <select class="form-select" ng-model="selectedCaravan" ng-change="addToComparison(selectedCaravan)">
+                        <option value="">-- Select a caravan --</option>
+                        <option ng-repeat="caravan in caravans" value="{{caravan.id}}">
+                            {{caravan.make}} {{caravan.model}} - ${{caravan.price | number:0}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-3">
+                <span class="badge bg-secondary">Selected: {{comparisonList.length}}/5</span>
+                <button class="btn btn-sm btn-warning ms-2" ng-click="clearComparison()" ng-show="comparisonList.length > 0">
+                    Clear All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="card" ng-show="comparisonList.length > 0">
+        <div class="card-header">
+            <h5>Comparison Table</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th ng-repeat="caravan in comparisonList">
+                                {{caravan.make}} {{caravan.model}}
+                                <button class="btn btn-sm btn-danger float-end" ng-click="removeFromComparison($index)">×</button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Make</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.make}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Model</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.model}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Origin</strong></td>
+                            <td ng-repeat="caravan in comparisonList">
+                                <span class="badge" ng-class="{'bg-success': caravan.origin === 'Australian Made', 'bg-info': caravan.origin === 'Imported'}">
+                                    {{caravan.origin}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Priority</strong></td>
+                            <td ng-repeat="caravan in comparisonList">
+                                <span class="badge" ng-class="{
+                                    'bg-danger': caravan.priority === 'HIGH',
+                                    'bg-warning': caravan.priority === 'MEDIUM',
+                                    'bg-info': caravan.priority === 'BUDGET',
+                                    'bg-primary': caravan.priority === 'PREMIUM'
+                                }">
+                                    {{caravan.priority}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Price (AUD)</strong></td>
+                            <td ng-repeat="caravan in comparisonList">${{caravan.price | number:0}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Website</strong></td>
+                            <td ng-repeat="caravan in comparisonList">
+                                <a ng-if="caravan.website" href="{{caravan.website}}" target="_blank" class="btn btn-sm btn-outline-primary">Visit</a>
+                                <span ng-if="!caravan.website">-</span>
+                            </td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td colspan="{{comparisonList.length + 1}}"><strong>Dimensions</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>External Length</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.externalLength || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>External Width</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.externalWidth || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>External Height</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.externalHeight || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internal Height</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.internalHeight || '-'}}</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td colspan="{{comparisonList.length + 1}}"><strong>Weight Specifications</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tare Weight (kg)</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.tareWeight || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ATM (kg)</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.atm || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ball Weight (kg)</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.ballWeight || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GTM (kg)</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.gtm || '-'}}</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td colspan="{{comparisonList.length + 1}}"><strong>Sleeping Arrangements</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Main Bed</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.mainBed || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Bunk Beds</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.bunkBeds || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bunk Type</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.bunkType || '-'}}</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td colspan="{{comparisonList.length + 1}}"><strong>Additional Information</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Features</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.features || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.status || '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Notes</strong></td>
+                            <td ng-repeat="caravan in comparisonList">{{caravan.notes || '-'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="alert alert-secondary text-center" ng-show="comparisonList.length === 0">
+        <h5>No caravans selected for comparison</h5>
+        <p>Select caravans from the dropdown above to start comparing.</p>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Caravan Research - Spring Boot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <module name="Campers" />
+    <module name="caravan-research" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.caravan.CaravanResearchApplication" />
     <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     <extension name="coverage">

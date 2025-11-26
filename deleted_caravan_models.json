@@ -1,0 +1,6 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-11-26",
+  "description": "This file stores information about caravan models that have been excluded from consideration. Each entry contains detailed information to uniquely identify the deleted model.",
+  "deletedModels": []
+}

@@ -1,0 +1,2832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Road Caravan Research - Australia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        .requirements-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .requirements-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements-box li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .requirements-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .price-tag {
+            background: #4caf50;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .price-tag.premium {
+            background: #ff9800;
+        }
+
+        .price-tag.budget {
+            background: #2196f3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+
+        .alert.info {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #1976d2;
+        }
+
+        .alert.warning {
+            background: #fff3e0;
+            border-color: #ff9800;
+            color: #f57c00;
+        }
+
+        .alert.success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #388e3c;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge.australian {
+            background: #4caf50;
+            color: white;
+        }
+
+        .badge.imported {
+            background: #2196f3;
+            color: white;
+        }
+
+        .badge.premium {
+            background: #ff9800;
+            color: white;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            background: white;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .highlight {
+            background: #fff59d;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Delete button styles */
+        .delete-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            float: right;
+            transition: all 0.3s;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover {
+            background: #d32f2f;
+            transform: scale(1.05);
+        }
+
+        .card {
+            position: relative;
+        }
+
+        .card h4 {
+            display: inline-block;
+            max-width: calc(100% - 100px);
+        }
+
+        .deleted-model {
+            display: none !important;
+        }
+
+        table tr.deleted-model {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚐 Off-Road Caravan Research Guide</h1>
+        <p>Complete Australian Caravan Purchase Guide - 35+ Manufacturers, 24 Priority Models</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#recommendations">Top Picks</a></li>
+            <li><a href="#comparison">AU vs Imported</a></li>
+            <li><a href="#priority-models">Priority Models</a></li>
+            <li><a href="#example-comparison">Example Comparison</a></li>
+            <li><a href="#comparison-table">Blank Table</a></li>
+            <li><a href="#manufacturers">All Manufacturers</a></li>
+            <li><a href="#checklist">Inspection Checklist</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>📋 Project Overview</h2>
+
+            <div class="requirements-box">
+                <h3>Your Requirements</h3>
+                <ul>
+                    <li><strong>Length:</strong> 15-18 feet (4.57-5.49 meters)</li>
+                    <li><strong>Condition:</strong> New only (not used)</li>
+                    <li><strong>Budget:</strong> Maximum $100,000 AUD</li>
+                    <li><strong>Sleeping:</strong> Minimum 2 bunk beds for children</li>
+                    <li><strong>Roof:</strong> Hard top only (no hybrid/pop-tops)</li>
+                    <li><strong>Capability:</strong> Off-road capable</li>
+                </ul>
+            </div>
+
+            <div class="alert info">
+                <strong>📊 Research Summary:</strong> This guide covers 35+ manufacturers (Australian-made and imported),
+                with 24 priority models identified that likely meet your requirements. Potential savings of $20,000-$40,000
+                available with imported brands.
+            </div>
+
+            <h3>Key Specifications to Gather</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>📏 Dimensions</h4>
+                    <ul>
+                        <li>External length, width, height</li>
+                        <li>Internal dimensions</li>
+                        <li>Bed dimensions (main & bunks)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>⚖️ Weights</h4>
+                    <ul>
+                        <li>Tare weight (empty)</li>
+                        <li>ATM (max loaded weight)</li>
+                        <li>Ball weight (10-15% of ATM)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>🔋 Power Systems</h4>
+                    <ul>
+                        <li>Solar panel wattage (300W+ preferred)</li>
+                        <li>Battery capacity & type (AGM/Lithium)</li>
+                        <li>Inverter capacity</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>🛞 Chassis & Suspension</h4>
+                    <ul>
+                        <li>Single or twin axle</li>
+                        <li>Suspension type</li>
+                        <li>Ground clearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>4-Week Action Plan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Focus</th>
+                        <th>Tasks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Week 1</strong></td>
+                        <td>Australian Premium Brands</td>
+                        <td>Visit Lotus, Jurgens, New Age, Crusader dealers. Research Goldstream online.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 2</strong></td>
+                        <td>Mid-Range & Imported</td>
+                        <td>Visit Coromal, check MDC, Paramount. Visit Evernew and Retreat dealers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 3</strong></td>
+                        <td>Budget Options & Compare</td>
+                        <td>Check On The Move, Kingdom, Condor. Fill comparison table. Create shortlist.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 4</strong></td>
+                        <td>Final Decision</td>
+                        <td>Re-inspect shortlist. Check insurance. Verify tow vehicle. Negotiate. Decide!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Top Recommendations Section -->
+        <section id="recommendations">
+            <h2>⭐ Top Recommendations</h2>
+
+            <div class="alert success">
+                <strong>Quick Decision Guide:</strong> If you want quality Australian-made, go with <span class="highlight">New Age Manta Ray</span> or <span class="highlight">Crusader Musketeer</span>.
+                For best value with significant savings, choose <span class="highlight">Retreat Hamilton/Fraser</span> or <span class="highlight">Evernew Family Series</span>.
+            </div>
+
+            <h3>🏆 Best Value Australian-Made</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>New Age Manta Ray</h4>
+                    <span class="badge australian">Australian Made</span>
+                    <span class="price-tag">$65,000 - $85,000</span>
+                    <p><strong>Why Choose:</strong> Popular family layouts, good value for money, well-priced, established brand.</p>
+                    <p><strong>Best For:</strong> Budget-conscious buyers wanting Australian quality.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Crusader Musketeer</h4>
+                    <span class="badge australian">Australian Made</span>
+                    <span class="price-tag">$70,000 - $95,000</span>
+                    <p><strong>Why Choose:</strong> Known specifically for multiple bunk options, family-focused designs.</p>
+                    <p><strong>Best For:</strong> Families needing flexible sleeping arrangements.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Goldstream Storm/Tornado</h4>
+                    <span class="badge australian">Australian Made</span>
+                    <span class="price-tag">$70,000 - $95,000</span>
+                    <p><strong>Why Choose:</strong> Off-road focus, Australian-made, family layouts available.</p>
+                    <p><strong>Best For:</strong> Serious off-road adventurers.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Lotus Trooper</h4>
+                    <span class="badge australian">Australian Made</span>
+                    <span class="price-tag">$75,000 - $95,000</span>
+                    <p><strong>Why Choose:</strong> Premium quality, compact family layouts, excellent reputation.</p>
+                    <p><strong>Best For:</strong> Quality-focused buyers within budget.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Jurgens Lunagazer</h4>
+                    <span class="badge australian">Australian Made</span>
+                    <span class="price-tag">$70,000 - $90,000</span>
+                    <p><strong>Why Choose:</strong> "Light on weight" philosophy, established since 1952, family-focused.</p>
+                    <p><strong>Best For:</strong> Buyers with smaller tow vehicles.</p>
+                </div>
+            </div>
+
+            <h3>💰 Best Value Imported (Save $20k-40k)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Retreat Hamilton/Fraser</h4>
+                    <span class="badge imported">Imported</span>
+                    <span class="price-tag budget">$55,000 - $80,000</span>
+                    <p><strong>Why Choose:</strong> Good reputation for imported brand, modern features, mid-range pricing.</p>
+                    <p><strong>Savings:</strong> ~$15,25k vs Australian equivalent.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Evernew Family Series</h4>
+                    <span class="badge imported">Imported</span>
+                    <span class="price-tag budget">$45,000 - $70,000</span>
+                    <p><strong>Why Choose:</strong> Significant cost savings, well under budget, established importer.</p>
+                    <p><strong>Savings:</strong> ~$25-40k vs Australian equivalent.</p>
+                </div>
+
+                <div class="card">
+                    <h4>On The Move BLADE/TRAXX</h4>
+                    <span class="badge imported">Imported</span>
+                    <span class="price-tag budget">$50,000 - $75,000</span>
+                    <p><strong>Why Choose:</strong> Growing brand, competitive pricing, off-road focus.</p>
+                    <p><strong>Savings:</strong> ~$20-30k vs Australian equivalent.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Concept Ascot/Euro</h4>
+                    <span class="badge imported">Imported</span>
+                    <span class="price-tag budget">$60,000 - $85,000</span>
+                    <p><strong>Why Choose:</strong> European-style layouts, modern design, good features.</p>
+                    <p><strong>Savings:</strong> ~$15-20k vs Australian equivalent.</p>
+                </div>
+            </div>
+
+            <div class="alert warning">
+                <strong>⚠️ Important for Imported Brands:</strong> Always inspect build quality carefully. Check warranty terms,
+                service center locations, and parts availability. Join owner groups on Facebook to get real-world feedback.
+                Consider that Australian-made typically have better resale value and support networks.
+            </div>
+
+            <h3>🎯 Models to Avoid</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Phoenix RV Off Road (6.3m / 21ft)</td>
+                        <td>Too long - exceeds 18ft maximum</td>
+                    </tr>
+                    <tr>
+                        <td>JB Caravans Scorpion (6.4m / 21ft)</td>
+                        <td>Too long - exceeds 18ft maximum</td>
+                    </tr>
+                    <tr>
+                        <td>Option RV Traction (6.4m / 21ft)</td>
+                        <td>Too long - exceeds 18ft maximum</td>
+                    </tr>
+                    <tr>
+                        <td>Track Trailer T4 Hybrid</td>
+                        <td>Hybrid roof - does not meet hard top requirement</td>
+                    </tr>
+                    <tr>
+                        <td>Any "Pop-Top" models</td>
+                        <td>Not hard top construction</td>
+                    </tr>
+                    <tr>
+                        <td>Kedron ATV ($90k+), Bushtracker ($100k+)</td>
+                        <td>Premium pricing - likely over budget</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Australian vs Imported Comparison -->
+        <section id="comparison">
+            <h2>🆚 Australian-Made vs Imported: Complete Comparison</h2>
+
+            <div class="alert info">
+                <strong>The Big Question:</strong> Should you pay $20,000-$40,000 more for Australian-made quality and support,
+                or save significantly with an imported brand? This section helps you decide.
+            </div>
+
+            <h3>💵 Price Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Australian-Made</th>
+                        <th>Imported</th>
+                        <th>Savings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Budget Models</strong></td>
+                        <td>$65,000 - $85,000</td>
+                        <td>$45,000 - $65,000</td>
+                        <td class="highlight">$20,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mid-Range Models</strong></td>
+                        <td>$75,000 - $95,000</td>
+                        <td>$55,000 - $80,000</td>
+                        <td class="highlight">$20-30,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Premium Models</strong></td>
+                        <td>$90,000 - $120,000</td>
+                        <td>$70,000 - $90,000</td>
+                        <td class="highlight">$30-40,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>✅ Australian-Made Advantages</h4>
+                    <ul>
+                        <li><strong>Build Quality:</strong> Higher quality control, better fit and finish</li>
+                        <li><strong>Support Network:</strong> Extensive dealer and service centers nationwide</li>
+                        <li><strong>Resale Value:</strong> Hold value better (typically 50% after 5 years)</li>
+                        <li><strong>Warranty:</strong> 2-5 year warranties, easier claims process</li>
+                        <li><strong>Parts:</strong> Better availability across Australia</li>
+                        <li><strong>Longevity:</strong> Established brands with proven track records</li>
+                        <li><strong>Australian Conditions:</strong> Designed for local climate and roads</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>✅ Imported Advantages</h4>
+                    <ul>
+                        <li><strong>Price:</strong> $20,000-$40,000 cheaper upfront</li>
+                        <li><strong>Features:</strong> More standard inclusions for the price</li>
+                        <li><strong>Modern Design:</strong> Contemporary styling and layouts</li>
+                        <li><strong>Lower Investment:</strong> Less financial commitment</li>
+                        <li><strong>Accessory Budget:</strong> More money for upgrades (solar, awning, etc.)</li>
+                        <li><strong>Dollar Depreciation:</strong> Lose less in absolute dollars</li>
+                        <li><strong>First-Timer Friendly:</strong> Lower risk while testing lifestyle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🤔 Decision Matrix: Which Should You Choose?</h3>
+
+            <div class="card-grid">
+                <div class="card" style="border-color: #4caf50; border-width: 3px;">
+                    <h4>Choose Australian-Made If:</h4>
+                    <ul>
+                        <li>✓ Planning long-term ownership (5-10+ years)</li>
+                        <li>✓ Frequent travel to remote areas</li>
+                        <li>✓ Value warranty and support network</li>
+                        <li>✓ Plan to resell in future</li>
+                        <li>✓ Want established quality/reliability</li>
+                        <li>✓ Budget allows ($75k-100k)</li>
+                        <li>✓ Peace of mind over savings</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Best Picks:</strong> New Age Manta Ray, Crusader Musketeer, Lotus Trooper</p>
+                </div>
+
+                <div class="card" style="border-color: #2196f3; border-width: 3px;">
+                    <h4>Choose Imported If:</h4>
+                    <ul>
+                        <li>✓ Budget conscious (save $20k-40k)</li>
+                        <li>✓ First caravan purchase</li>
+                        <li>✓ Careful buyer (will inspect thoroughly)</li>
+                        <li>✓ Handy with minor repairs</li>
+                        <li>✓ Want more features for less</li>
+                        <li>✓ Plan shorter ownership (3-5 years)</li>
+                        <li>✓ Use savings for upgrades</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Best Picks:</strong> Retreat Hamilton/Fraser, Evernew Family, On The Move</p>
+                </div>
+            </div>
+
+            <h3>📊 5-Year Financial Analysis</h3>
+            <div class="alert success">
+                <h4>Example: $90k Australian vs $60k Imported</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Australian-Made</th>
+                            <th>Imported</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Purchase Price</td>
+                            <td>$90,000</td>
+                            <td>$60,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accessories/Setup</td>
+                            <td>$5,000</td>
+                            <td>$15,000 (more budget)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Investment</strong></td>
+                            <td><strong>$95,000</strong></td>
+                            <td><strong>$75,000</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Resale After 5 Years</td>
+                            <td>~$45,000 (50%)</td>
+                            <td>~$21,000 (35%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Net Cost</strong></td>
+                            <td><strong>$50,000</strong></td>
+                            <td><strong>$54,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 15px;"><strong>Verdict:</strong> Over 5+ years, net costs can be similar. Decision comes down to quality during ownership, reliability, and support availability.</p>
+            </div>
+
+            <h3>⚠️ Critical Questions for Imported Brands</h3>
+            <ol>
+                <li>Is warranty backed by Australian company or overseas manufacturer?</li>
+                <li>What exactly is covered and what is excluded?</li>
+                <li>Who performs warranty work and where?</li>
+                <li>How many service centers in Australia?</li>
+                <li>Has company been operating in Australia for 3+ years?</li>
+                <li>Can you speak with existing owners?</li>
+                <li>What is parts availability like?</li>
+                <li>Are appliances from known brands (Dometic, Thetford, etc.)?</li>
+            </ol>
+
+            <h3>🎯 Real-World Buyer Scenarios</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Scenario 1: The Weekend Warrior</h4>
+                    <p><strong>Use:</strong> 4-6 trips/year, established campgrounds</p>
+                    <p><strong>Budget:</strong> $80,000</p>
+                    <p><strong>Recommendation:</strong> Either option works</p>
+                    <p><strong>Logic:</strong> Lower use means imported could be fine, but Australian gives peace of mind.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 2: Remote Adventurer</h4>
+                    <p><strong>Use:</strong> 10+ trips/year, remote locations</p>
+                    <p><strong>Budget:</strong> $90,000</p>
+                    <p><strong>Recommendation:</strong> <span class="highlight">Australian-made</span></p>
+                    <p><strong>Logic:</strong> Need reliable support network, durability for harsh conditions.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 3: Budget Explorer</h4>
+                    <p><strong>Use:</strong> 6-8 trips/year, mix of locations</p>
+                    <p><strong>Budget:</strong> $65,000</p>
+                    <p><strong>Recommendation:</strong> Quality imported or budget Australian</p>
+                    <p><strong>Logic:</strong> Balance cost savings with enough quality for regular use.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 4: The First-Timer</h4>
+                    <p><strong>Use:</strong> Testing caravan lifestyle</p>
+                    <p><strong>Budget:</strong> $70,000</p>
+                    <p><strong>Recommendation:</strong> <span class="highlight">Mid-range imported</span></p>
+                    <p><strong>Logic:</strong> Lower investment while determining if caravanning suits, save money for accessories.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Scenario 5: Long-Term Investor</h4>
+                    <p><strong>Use:</strong> Planning 10+ years ownership</p>
+                    <p><strong>Budget:</strong> $95,000</p>
+                    <p><strong>Recommendation:</strong> <span class="highlight">Premium Australian-made</span></p>
+                    <p><strong>Logic:</strong> Long-term durability, support, and resale value justify higher initial cost.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priority Models Section -->
+        <section id="priority-models">
+            <h2>🎯 24 Priority Models - Ranked</h2>
+
+            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <strong>Deleted Models:</strong> <span id="deleted-count" style="color: #666;">No models deleted</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn" onclick="viewDeletedModels()" style="padding: 8px 16px; font-size: 0.9em; background: #9c27b0;">👁️ View Deleted</button>
+                    <button class="btn" onclick="exportDeletedModels()" style="padding: 8px 16px; font-size: 0.9em;">📥 Export to File</button>
+                    <button class="btn" onclick="importDeletedModels()" style="padding: 8px 16px; font-size: 0.9em;">📤 Import from File</button>
+                    <button class="btn" onclick="restoreAllModels()" style="padding: 8px 16px; font-size: 0.9em; background: #ff9800;">🔄 Restore All</button>
+                </div>
+            </div>
+
+            <div class="alert success" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+                <strong>📁 File-Based Storage:</strong> Deleted models are saved to <code>deleted_caravan_models.json</code> in your project folder.
+                When you delete a model, always save the exported file to <code>/Users/oweinmann/Workspace/Campers/</code> to keep your deletions permanent.
+                Use "📤 Import from File" to load your saved deletions after reopening the page.
+            </div>
+
+            <div class="alert info">
+                <strong>How to Use This List:</strong> Start with High Priority models that are most likely to meet your requirements.
+                Move to Medium Priority if needed. Budget Imported options save $20k-40k. Premium options if your budget allows.
+            </div>
+
+            <h3>🏆 High Priority Models (Start Here!)</h3>
+
+            <div class="card" data-model-id="1">
+                <button class="delete-btn" onclick="deleteModel(1)">Delete</button>
+                <h4>1. Lotus Caravans - Trooper <span class="badge australian">Australian Made</span></h4>
+                <span class="price-tag">$75,000 - $95,000</span>
+                <p><strong>Estimated Length:</strong> 16-17ft variants available</p>
+                <p><strong>Why Priority:</strong> Known for compact family layouts, Australian-made, excellent reputation, good off-road capability.</p>
+                <p><strong>Where to Find:</strong> lotuscaravans.com.au/caravans/trooper/ - Use dealer locator</p>
+                <p><strong>Action:</strong> Check if family layout includes bunks</p>
+            </div>
+
+            <div class="card" data-model-id="2">
+                <button class="delete-btn" onclick="deleteModel(2)">Delete</button>
+                <h4>2. Jurgens - Lunagazer Series <span class="badge australian">Australian Made</span></h4>
+                <span class="price-tag">$70,000 - $90,000</span>
+                <p><strong>Estimated Length:</strong> 16-18ft models available</p>
+                <p><strong>Why Priority:</strong> "Light on weight" philosophy, established brand since 1952, family-focused, known for bunk layouts.</p>
+                <p><strong>Where to Find:</strong> jurgens.com.au</p>
+                <p><strong>Action:</strong> Verify off-road package included</p>
+            </div>
+
+            <div class="card" data-model-id="3">
+                <button class="delete-btn" onclick="deleteModel(3)">Delete</button>
+                <h4>3. New Age Caravans - Manta Ray <span class="badge australian">Australian Made</span></h4>
+                <span class="price-tag">$65,000 - $85,000</span>
+                <p><strong>Estimated Length:</strong> Multiple sizes including 16-17ft</p>
+                <p><strong>Why Priority:</strong> Good value, popular family layouts, well-priced, often under $100k budget.</p>
+                <p><strong>Where to Find:</strong> newagecaravans.com.au</p>
+                <p><strong>Action:</strong> Check Manta Ray family layout specifications</p>
+            </div>
+
+            <div class="card" data-model-id="4">
+                <button class="delete-btn" onclick="deleteModel(4)">Delete</button>
+                <h4>4. Crusader Caravans - Musketeer <span class="badge australian">Australian Made</span></h4>
+                <span class="price-tag">$70,000 - $95,000</span>
+                <p><strong>Estimated Length:</strong> Various sizes, including compact</p>
+                <p><strong>Why Priority:</strong> Known specifically for family layouts with multiple bunk options, designed for families.</p>
+                <p><strong>Where to Find:</strong> crusadercaravans.com.au</p>
+                <p><strong>Action:</strong> Inquire about models with 2+ bunks</p>
+            </div>
+
+            <div class="card" data-model-id="5">
+                <button class="delete-btn" onclick="deleteModel(5)">Delete</button>
+                <h4>5. Coromal - Adventure Seeker <span class="badge australian">Australian Made</span></h4>
+                <span class="price-tag">$75,000 - $95,000</span>
+                <p><strong>Estimated Length:</strong> Check 16-18ft range</p>
+                <p><strong>Why Priority:</strong> Australian-made, diverse layouts, established brand with good reputation.</p>
+                <p><strong>Where to Find:</strong> coromal.com.au</p>
+                <p><strong>Action:</strong> Confirm hard top on specific model</p>
+            </div>
+
+            <h3>⚙️ Medium Priority - Australian-Made (9 Models)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Brand & Model</th>
+                        <th>Price Range</th>
+                        <th>Why Consider</th>
+                        <th>Website</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-model-id="6">
+                        <td>6</td>
+                        <td><strong>MDC Campers</strong> - Off-Road Range</td>
+                        <td>$50,000 - $75,000</td>
+                        <td>Budget-friendly, often well under $100k</td>
+                        <td>mdctrailers.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(6)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="7">
+                        <td>7</td>
+                        <td><strong>Goldstream RV</strong> - Storm/Tornado</td>
+                        <td>$70,000 - $95,000</td>
+                        <td>Off-road focus, Australian-made, family layouts</td>
+                        <td>goldstreamrv.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(7)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="8">
+                        <td>8</td>
+                        <td><strong>Traveller</strong> - Utopia/Prodigy</td>
+                        <td>$65,000 - $90,000</td>
+                        <td>Modern layouts, good value, off-road capable</td>
+                        <td>travellercaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(8)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="9">
+                        <td>9</td>
+                        <td><strong>Paramount</strong> - Family Off-Road</td>
+                        <td>$70,000 - $90,000</td>
+                        <td>Solid construction, family-focused designs</td>
+                        <td>paramountcaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(9)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="10">
+                        <td>10</td>
+                        <td><strong>Track Trailer</strong> - Tvan Family</td>
+                        <td>$80,000 - $100,000</td>
+                        <td>Compact design, innovative layouts</td>
+                        <td>tracktrailer.com.au/tvan</td>
+                        <td><button class="delete-btn" onclick="deleteModel(10)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="11">
+                        <td>11</td>
+                        <td><strong>Innovative</strong> - Custom Build</td>
+                        <td>Varies</td>
+                        <td>Customize layout to exact requirements</td>
+                        <td>innovativecaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(11)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="12">
+                        <td>12</td>
+                        <td><strong>Kingston</strong> - Terrain Series</td>
+                        <td>$70,000 - $90,000</td>
+                        <td>Off-road focused, family-friendly options</td>
+                        <td>kingstoncaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(12)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="13">
+                        <td>13</td>
+                        <td><strong>Legend</strong> - Ranger/Explorer</td>
+                        <td>$75,000 - $95,000</td>
+                        <td>Off-road capability, Australian-made</td>
+                        <td>legendcaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(13)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="14">
+                        <td>14</td>
+                        <td><strong>Compass</strong> - Off-Road Family</td>
+                        <td>$70,000 - $95,000</td>
+                        <td>Custom builds, family-friendly layouts</td>
+                        <td>compasscaravans.com.au</td>
+                        <td><button class="delete-btn" onclick="deleteModel(14)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>💰 Budget-Friendly Imported (6 Models - Save $20k-40k)</h3>
+
+            <div class="card-grid">
+                <div class="card" data-model-id="15">
+                    <button class="delete-btn" onclick="deleteModel(15)">Delete</button>
+                    <h4>15. Evernew - Family Off-Road Series <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$45,000 - $70,000</span>
+                    <p><strong>Origin:</strong> China/Imported</p>
+                    <p><strong>Why Consider:</strong> Significant cost savings, well under budget, established importer in Australia.</p>
+                    <p><strong>Considerations:</strong> Inspect build quality carefully, check warranty details</p>
+                    <p><strong>Website:</strong> evernewcaravans.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$25,000-40,000 vs Australian equivalent</span></p>
+                </div>
+
+                <div class="card" data-model-id="16">
+                    <button class="delete-btn" onclick="deleteModel(16)">Delete</button>
+                    <h4>16. Retreat Caravans - Hamilton/Fraser <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$55,000 - $80,000</span>
+                    <p><strong>Origin:</strong> Imported/assembled in Australia</p>
+                    <p><strong>Why Consider:</strong> Mid-range imported option, modern features, good reputation for imports.</p>
+                    <p><strong>Considerations:</strong> Check for family bunk layouts</p>
+                    <p><strong>Website:</strong> retreatcaravans.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$15,000-25,000 vs Australian equivalent</span></p>
+                </div>
+
+                <div class="card" data-model-id="17">
+                    <button class="delete-btn" onclick="deleteModel(17)">Delete</button>
+                    <h4>17. On The Move - BLADE/TRAXX <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$50,000 - $75,000</span>
+                    <p><strong>Origin:</strong> Imported</p>
+                    <p><strong>Why Consider:</strong> Growing brand, competitive pricing, off-road focus.</p>
+                    <p><strong>Considerations:</strong> Newer brand, research owner reviews</p>
+                    <p><strong>Website:</strong> onthemove.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$20,000-30,000 vs Australian equivalent</span></p>
+                </div>
+
+                <div class="card" data-model-id="18">
+                    <button class="delete-btn" onclick="deleteModel(18)">Delete</button>
+                    <h4>18. Kingdom Caravans - Off-Road Family <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$45,000 - $65,000</span>
+                    <p><strong>Origin:</strong> China/Imported</p>
+                    <p><strong>Why Consider:</strong> Budget pricing, family layouts available.</p>
+                    <p><strong>Considerations:</strong> Inspect quality carefully, lower price point</p>
+                    <p><strong>Website:</strong> kingdomcaravans.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$25,000-40,000 vs Australian equivalent</span></p>
+                </div>
+
+                <div class="card" data-model-id="19">
+                    <button class="delete-btn" onclick="deleteModel(19)">Delete</button>
+                    <h4>19. Condor Caravans - RV Family <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$50,000 - $70,000</span>
+                    <p><strong>Origin:</strong> Imported</p>
+                    <p><strong>Why Consider:</strong> Value pricing, family-focused models.</p>
+                    <p><strong>Considerations:</strong> Check build quality and warranty</p>
+                    <p><strong>Website:</strong> condorcaravans.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$20,000-30,000 vs Australian equivalent</span></p>
+                </div>
+
+                <div class="card" data-model-id="20">
+                    <button class="delete-btn" onclick="deleteModel(20)">Delete</button>
+                    <h4>20. Concept Caravans - Ascot/Euro <span class="badge imported">Imported</span></h4>
+                    <span class="price-tag budget">$60,000 - $85,000</span>
+                    <p><strong>Origin:</strong> Imported/assembled in Australia</p>
+                    <p><strong>Why Consider:</strong> European-style layouts, modern design, good features.</p>
+                    <p><strong>Considerations:</strong> Check off-road variants, verify bunk options</p>
+                    <p><strong>Website:</strong> conceptcaravans.com.au</p>
+                    <p><strong>💡 Savings:</strong> <span class="highlight">$15,000-20,000 vs Australian equivalent</span></p>
+                </div>
+            </div>
+
+            <h3>💎 Premium Options - If Budget Allows (4 Models)</h3>
+
+            <div class="alert warning">
+                <strong>⚠️ Budget Alert:</strong> These models may exceed your $100,000 budget, but check for compact variants or end-of-year specials.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Brand & Model</th>
+                        <th>Price Range</th>
+                        <th>Why Consider</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-model-id="21">
+                        <td>21</td>
+                        <td><strong>Jayco</strong> - Journey Outback</td>
+                        <td>$85,000 - $105,000</td>
+                        <td>Premium quality, excellent reputation, family-focused. May exceed budget but check base models.</td>
+                        <td><button class="delete-btn" onclick="deleteModel(21)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="22">
+                        <td>22</td>
+                        <td><strong>Kedron</strong> - ATV Series</td>
+                        <td>$90,000 - $120,000+</td>
+                        <td>Premium Australian-made, excellent build quality. Likely over budget but check compact models.</td>
+                        <td><button class="delete-btn" onclick="deleteModel(22)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="23">
+                        <td>23</td>
+                        <td><strong>JAWA</strong> - Outback Series</td>
+                        <td>$85,000 - $110,000</td>
+                        <td>Rugged off-road capability, Australian-made. Check if within budget.</td>
+                        <td><button class="delete-btn" onclick="deleteModel(23)">Delete</button></td>
+                    </tr>
+                    <tr data-model-id="24">
+                        <td>24</td>
+                        <td><strong>Fortis</strong> - Off-Road Family</td>
+                        <td>$95,000 - $130,000+</td>
+                        <td>Military-grade construction, extreme off-road. Likely over budget but worth checking.</td>
+                        <td><button class="delete-btn" onclick="deleteModel(24)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert success">
+                <strong>📋 Next Action:</strong> Copy the dealer contact email template from the resources section below and start contacting dealers
+                for your top 5-10 models. Request brochures, pricing, and availability for inspection.
+            </div>
+        </section>
+
+        <!-- Example Comparison -->
+        <section id="example-comparison">
+            <h2>📋 Example Comparison - Top Models</h2>
+
+            <div class="alert success">
+                <strong>💡 Example Guide:</strong> This table shows how to fill in your comparison data. Model 1 is pre-filled
+                with example specifications for the <strong>New Age Manta Ray 16ft</strong>. Use this as a template for recording
+                information about other caravans you inspect.
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table style="min-width: 1400px;">
+                    <thead>
+                        <tr>
+                            <th style="position: sticky; left: 0; background: #667eea; z-index: 10;">Specification</th>
+                            <th style="background: #4caf50;">New Age Manta Ray</th>
+                            <th style="background: #4caf50;">Crusader Musketeer</th>
+                            <th style="background: #4caf50;">Lotus Trooper</th>
+                            <th style="background: #4caf50;">Jurgens Lunagazer</th>
+                            <th style="background: #2196f3;">Evernew Family</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">BASIC INFO</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Make & Model</strong></td>
+                            <td style="background: #e8f5e9;">New Age Manta Ray 16ft Family</td>
+                            <td style="background: #e8f5e9;">Crusader Musketeer 17ft Bunk</td>
+                            <td style="background: #e8f5e9;">Lotus Trooper 16.6ft Family</td>
+                            <td style="background: #e8f5e9;">Jurgens Lunagazer J17</td>
+                            <td style="background: #e3f2fd;">Evernew E16 Family Offroad</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Origin</strong></td>
+                            <td style="background: #e8f5e9;">Australian Made</td>
+                            <td style="background: #e8f5e9;">Australian Made</td>
+                            <td style="background: #e8f5e9;">Australian Made</td>
+                            <td style="background: #e8f5e9;">Australian Made</td>
+                            <td style="background: #e3f2fd;">Imported (China)</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Price (AUD)</strong></td>
+                            <td style="background: #e8f5e9;">$72,990</td>
+                            <td style="background: #e8f5e9;">$82,500</td>
+                            <td style="background: #e8f5e9;">$87,990</td>
+                            <td style="background: #e8f5e9;">$79,900</td>
+                            <td style="background: #e3f2fd;">$58,900</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Dealer/Website</strong></td>
+                            <td style="background: #e8f5e9;">newagecaravans.com.au</td>
+                            <td style="background: #e8f5e9;">crusadercaravans.com.au</td>
+                            <td style="background: #e8f5e9;">lotuscaravans.com.au</td>
+                            <td style="background: #e8f5e9;">jurgens.com.au</td>
+                            <td style="background: #e3f2fd;">evernewcaravans.com.au</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">DIMENSIONS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Length</strong></td>
+                            <td style="background: #e8f5e9;">4.88m / 16ft</td>
+                            <td style="background: #e8f5e9;">5.18m / 17ft</td>
+                            <td style="background: #e8f5e9;">5.05m / 16.6ft</td>
+                            <td style="background: #e8f5e9;">5.18m / 17ft</td>
+                            <td style="background: #e3f2fd;">4.88m / 16ft</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Width</strong></td>
+                            <td style="background: #e8f5e9;">2.40m</td>
+                            <td style="background: #e8f5e9;">2.38m</td>
+                            <td style="background: #e8f5e9;">2.44m</td>
+                            <td style="background: #e8f5e9;">2.35m</td>
+                            <td style="background: #e3f2fd;">2.40m</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Height</strong></td>
+                            <td style="background: #e8f5e9;">2.85m</td>
+                            <td style="background: #e8f5e9;">2.95m</td>
+                            <td style="background: #e8f5e9;">2.90m</td>
+                            <td style="background: #e8f5e9;">2.80m</td>
+                            <td style="background: #e3f2fd;">2.75m</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WEIGHTS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Tare Weight</strong></td>
+                            <td style="background: #e8f5e9;">1,680 kg</td>
+                            <td style="background: #e8f5e9;">1,820 kg</td>
+                            <td style="background: #e8f5e9;">1,890 kg</td>
+                            <td style="background: #e8f5e9;">1,590 kg</td>
+                            <td style="background: #e3f2fd;">1,650 kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>ATM (Max Weight)</strong></td>
+                            <td style="background: #e8f5e9;">2,400 kg</td>
+                            <td style="background: #e8f5e9;">2,600 kg</td>
+                            <td style="background: #e8f5e9;">2,700 kg</td>
+                            <td style="background: #e8f5e9;">2,400 kg</td>
+                            <td style="background: #e3f2fd;">2,300 kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Ball Weight</strong></td>
+                            <td style="background: #e8f5e9;">240 kg</td>
+                            <td style="background: #e8f5e9;">260 kg</td>
+                            <td style="background: #e8f5e9;">270 kg</td>
+                            <td style="background: #e8f5e9;">240 kg</td>
+                            <td style="background: #e3f2fd;">230 kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Payload</strong></td>
+                            <td style="background: #e8f5e9;">720 kg</td>
+                            <td style="background: #e8f5e9;">780 kg</td>
+                            <td style="background: #e8f5e9;">810 kg</td>
+                            <td style="background: #e8f5e9;">810 kg</td>
+                            <td style="background: #e3f2fd;">650 kg</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">CHASSIS & SUSPENSION</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Axle Configuration</strong></td>
+                            <td style="background: #e8f5e9;">Single Axle</td>
+                            <td style="background: #e8f5e9;">Single Axle</td>
+                            <td style="background: #e8f5e9;">Single Axle</td>
+                            <td style="background: #e8f5e9;">Single Axle</td>
+                            <td style="background: #e3f2fd;">Single Axle</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Suspension Type</strong></td>
+                            <td style="background: #e8f5e9;">Independent Coil Spring</td>
+                            <td style="background: #e8f5e9;">Independent Trailing Arm</td>
+                            <td style="background: #e8f5e9;">Independent Coil Spring</td>
+                            <td style="background: #e8f5e9;">Independent Al-Ko</td>
+                            <td style="background: #e3f2fd;">Trailing Arm</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Ground Clearance</strong></td>
+                            <td style="background: #e8f5e9;">280 mm</td>
+                            <td style="background: #e8f5e9;">295 mm</td>
+                            <td style="background: #e8f5e9;">310 mm</td>
+                            <td style="background: #e8f5e9;">285 mm</td>
+                            <td style="background: #e3f2fd;">260 mm</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Coupling Type</strong></td>
+                            <td style="background: #e8f5e9;">DO35 Off-Road</td>
+                            <td style="background: #e8f5e9;">DO35 Off-Road</td>
+                            <td style="background: #e8f5e9;">DO35 Off-Road</td>
+                            <td style="background: #e8f5e9;">DO35 Off-Road</td>
+                            <td style="background: #e3f2fd;">50mm Ball</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">ELECTRICAL SYSTEM</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Solar Panel Size</strong></td>
+                            <td style="background: #e8f5e9;">200W (upgradable to 400W)</td>
+                            <td style="background: #e8f5e9;">250W (standard)</td>
+                            <td style="background: #e8f5e9;">320W (standard)</td>
+                            <td style="background: #e8f5e9;">300W (standard)</td>
+                            <td style="background: #e3f2fd;">160W (upgradable)</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Battery Capacity</strong></td>
+                            <td style="background: #e8f5e9;">120 Ah (upgradable)</td>
+                            <td style="background: #e8f5e9;">150 Ah</td>
+                            <td style="background: #e8f5e9;">200 Ah Lithium</td>
+                            <td style="background: #e8f5e9;">180 Ah</td>
+                            <td style="background: #e3f2fd;">100 Ah</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Battery Type</strong></td>
+                            <td style="background: #e8f5e9;">AGM (Lithium optional)</td>
+                            <td style="background: #e8f5e9;">AGM (Lithium optional)</td>
+                            <td style="background: #e8f5e9;">Lithium (standard)</td>
+                            <td style="background: #e8f5e9;">AGM (Lithium optional)</td>
+                            <td style="background: #e3f2fd;">AGM</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Inverter</strong></td>
+                            <td style="background: #e8f5e9;">1000W (optional)</td>
+                            <td style="background: #e8f5e9;">1500W (standard)</td>
+                            <td style="background: #e8f5e9;">2000W (standard)</td>
+                            <td style="background: #e8f5e9;">1000W (optional)</td>
+                            <td style="background: #e3f2fd;">600W (optional)</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">SLEEPING ARRANGEMENTS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Main Bed Size</strong></td>
+                            <td style="background: #e8f5e9;">Queen 1.53m x 1.88m</td>
+                            <td style="background: #e8f5e9;">Queen 1.52m x 1.90m</td>
+                            <td style="background: #e8f5e9;">Queen 1.53m x 2.00m</td>
+                            <td style="background: #e8f5e9;">Queen 1.50m x 1.88m</td>
+                            <td style="background: #e3f2fd;">Queen 1.50m x 1.85m</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Number of Bunks</strong></td>
+                            <td style="background: #e8f5e9;">2 bunks</td>
+                            <td style="background: #e8f5e9;">3 bunks (2 fixed + 1 fold-down)</td>
+                            <td style="background: #e8f5e9;">2 bunks</td>
+                            <td style="background: #e8f5e9;">2 bunks</td>
+                            <td style="background: #e3f2fd;">2 bunks</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Bunk Dimensions</strong></td>
+                            <td style="background: #e8f5e9;">Each 0.75m x 1.85m</td>
+                            <td style="background: #e8f5e9;">Fixed: 0.76m x 1.88m, Fold: 0.72m x 1.80m</td>
+                            <td style="background: #e8f5e9;">Each 0.80m x 1.90m</td>
+                            <td style="background: #e8f5e9;">Each 0.75m x 1.85m</td>
+                            <td style="background: #e3f2fd;">Each 0.70m x 1.80m</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WATER & GAS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Fresh Water Tank</strong></td>
+                            <td style="background: #e8f5e9;">120 L</td>
+                            <td style="background: #e8f5e9;">140 L</td>
+                            <td style="background: #e8f5e9;">160 L</td>
+                            <td style="background: #e8f5e9;">125 L</td>
+                            <td style="background: #e3f2fd;">100 L</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Grey Water Tank</strong></td>
+                            <td style="background: #e8f5e9;">80 L</td>
+                            <td style="background: #e8f5e9;">100 L</td>
+                            <td style="background: #e8f5e9;">120 L</td>
+                            <td style="background: #e8f5e9;">90 L</td>
+                            <td style="background: #e3f2fd;">70 L</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Gas Bottles</strong></td>
+                            <td style="background: #e8f5e9;">2 x 4.5kg cylinders</td>
+                            <td style="background: #e8f5e9;">2 x 4.5kg cylinders</td>
+                            <td style="background: #e8f5e9;">2 x 4.5kg cylinders</td>
+                            <td style="background: #e8f5e9;">2 x 4kg cylinders</td>
+                            <td style="background: #e3f2fd;">2 x 4kg cylinders</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Hot Water System</strong></td>
+                            <td style="background: #e8f5e9;">Gas/Electric 23L</td>
+                            <td style="background: #e8f5e9;">Gas/Electric 25L Truma</td>
+                            <td style="background: #e8f5e9;">Gas/Electric 27L Truma</td>
+                            <td style="background: #e8f5e9;">Gas/Electric 22L Suburban</td>
+                            <td style="background: #e3f2fd;">Gas 20L</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WARRANTY & DELIVERY</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Warranty Period</strong></td>
+                            <td style="background: #e8f5e9;">3 years structural, 1 year appliances</td>
+                            <td style="background: #e8f5e9;">5 years structural, 2 year appliances</td>
+                            <td style="background: #e8f5e9;">5 years structural, 2 year appliances</td>
+                            <td style="background: #e8f5e9;">3 years structural, 1 year appliances</td>
+                            <td style="background: #e3f2fd;">2 years structural, 1 year appliances</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Delivery Time</strong></td>
+                            <td style="background: #e8f5e9;">8-12 weeks</td>
+                            <td style="background: #e8f5e9;">10-14 weeks</td>
+                            <td style="background: #e8f5e9;">12-16 weeks</td>
+                            <td style="background: #e8f5e9;">8-10 weeks</td>
+                            <td style="background: #e3f2fd;">4-6 weeks</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Delivery Cost</strong></td>
+                            <td style="background: #e8f5e9;">$800-1,500 (location dependent)</td>
+                            <td style="background: #e8f5e9;">$900-1,800 (location dependent)</td>
+                            <td style="background: #e8f5e9;">$1,000-2,000 (location dependent)</td>
+                            <td style="background: #e8f5e9;">$850-1,600 (location dependent)</td>
+                            <td style="background: #e3f2fd;">$600-1,200 (location dependent)</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">REQUIREMENTS CHECK</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Length 15-18ft?</strong></td>
+                            <td style="background: #e8f5e9;">✅ Yes (16ft)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (17ft)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (16.6ft)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (17ft)</td>
+                            <td style="background: #e3f2fd;">✅ Yes (16ft)</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ 2+ Bunk Beds?</strong></td>
+                            <td style="background: #e8f5e9;">✅ Yes (2 bunks)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (3 bunks)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (2 bunks)</td>
+                            <td style="background: #e8f5e9;">✅ Yes (2 bunks)</td>
+                            <td style="background: #e3f2fd;">✅ Yes (2 bunks)</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Hard Top Roof?</strong></td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e3f2fd;">✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Under $100k?</strong></td>
+                            <td style="background: #e8f5e9;">✅ Yes ($72,990)</td>
+                            <td style="background: #e8f5e9;">✅ Yes ($82,500)</td>
+                            <td style="background: #e8f5e9;">✅ Yes ($87,990)</td>
+                            <td style="background: #e8f5e9;">✅ Yes ($79,900)</td>
+                            <td style="background: #e3f2fd;">✅ Yes ($58,900)</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Off-Road Capable?</strong></td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e8f5e9;">✅ Yes</td>
+                            <td style="background: #e3f2fd;">✅ Yes</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">NOTES & RATING</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Overall Rating</strong></td>
+                            <td style="background: #e8f5e9;">8/10</td>
+                            <td style="background: #e8f5e9;">8.5/10</td>
+                            <td style="background: #e8f5e9;">9/10</td>
+                            <td style="background: #e8f5e9;">8/10</td>
+                            <td style="background: #e3f2fd;">7/10</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Pros</strong></td>
+                            <td style="background: #e8f5e9;">Great value, proven reliability, good dealer network, perfect size, meets all requirements</td>
+                            <td style="background: #e8f5e9;">Excellent bunk layout (3 bunks!), premium build quality, strong off-road capability, 5-year warranty, family-focused design</td>
+                            <td style="background: #e8f5e9;">Premium construction, lithium battery standard, excellent storage, wider bunks, top-tier finish quality, 5-year warranty</td>
+                            <td style="background: #e8f5e9;">Lightweight design (best for smaller tow vehicles), established brand since 1952, good off-road features, competitive pricing</td>
+                            <td style="background: #e3f2fd;">Significantly cheaper ($20k+ savings), quick delivery, meets all core requirements, modern features included</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Cons</strong></td>
+                            <td style="background: #e8f5e9;">Solar/battery could be upgraded, basic standard features, single axle only</td>
+                            <td style="background: #e8f5e9;">Higher price point, longer delivery time (10-14 weeks), third bunk is fold-down (not ideal for permanent use)</td>
+                            <td style="background: #e8f5e9;">Most expensive option ($87,990), longest delivery (12-16 weeks), heavier weight may need larger tow vehicle</td>
+                            <td style="background: #e8f5e9;">Smaller water tanks, lighter weight = lower payload capacity, fewer premium features compared to competitors</td>
+                            <td style="background: #e3f2fd;">Shorter warranty (2 years), imported quality concerns, basic coupling (50mm ball vs DO35), lower resale value expected</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Additional Notes</strong></td>
+                            <td style="background: #e8f5e9;">Popular family model, lots of owner reviews available online, good resale value</td>
+                            <td style="background: #e8f5e9;">Strong reputation for family layouts, active owner community, excellent for families with 3+ children</td>
+                            <td style="background: #e8f5e9;">Premium choice if budget allows, best build quality of all options, ideal for serious off-roading</td>
+                            <td style="background: #e8f5e9;">Good middle-ground option, reliable brand, suitable for mid-size SUVs (lighter weight advantage)</td>
+                            <td style="background: #e3f2fd;">Best budget option, inspect quality carefully before purchase, consider warranty upgrade if available, good for testing caravan lifestyle</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert info" style="margin-top: 30px;">
+                <h4>📝 About This Example:</h4>
+                <p><strong>New Age Manta Ray 16ft Family</strong> is shown as an example because it:</p>
+                <ul>
+                    <li>✅ Meets all your requirements (15-18ft, 2 bunks, hard top, under $100k, off-road)</li>
+                    <li>✅ Represents typical specifications you'll encounter</li>
+                    <li>✅ Shows the level of detail to record for each caravan</li>
+                    <li>✅ Demonstrates how to evaluate against your requirements</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Note:</strong> This is example data for illustration purposes.
+                Always verify current specifications and pricing directly with dealers as they may vary.</p>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section id="comparison-table">
+            <h2>📊 Caravan Comparison Table</h2>
+
+            <div class="alert info">
+                <strong>💡 How to Use:</strong> Fill in this table as you gather information from dealers. Print this page or
+                keep it open on your phone/tablet during dealership visits. Compare specifications side-by-side to make your decision.
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table style="min-width: 1400px;">
+                    <thead>
+                        <tr>
+                            <th style="position: sticky; left: 0; background: #667eea; z-index: 10;">Specification</th>
+                            <th>Model 1</th>
+                            <th>Model 2</th>
+                            <th>Model 3</th>
+                            <th>Model 4</th>
+                            <th>Model 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">BASIC INFO</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Make & Model</strong></td>
+                            <td contenteditable="true" style="min-width: 150px; cursor: text;">_____________</td>
+                            <td contenteditable="true" style="min-width: 150px; cursor: text;">_____________</td>
+                            <td contenteditable="true" style="min-width: 150px; cursor: text;">_____________</td>
+                            <td contenteditable="true" style="min-width: 150px; cursor: text;">_____________</td>
+                            <td contenteditable="true" style="min-width: 150px; cursor: text;">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Origin</strong></td>
+                            <td contenteditable="true">Australian / Imported</td>
+                            <td contenteditable="true">Australian / Imported</td>
+                            <td contenteditable="true">Australian / Imported</td>
+                            <td contenteditable="true">Australian / Imported</td>
+                            <td contenteditable="true">Australian / Imported</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Price (AUD)</strong></td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Dealer/Website</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">DIMENSIONS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Length</strong></td>
+                            <td contenteditable="true">______ m / ft</td>
+                            <td contenteditable="true">______ m / ft</td>
+                            <td contenteditable="true">______ m / ft</td>
+                            <td contenteditable="true">______ m / ft</td>
+                            <td contenteditable="true">______ m / ft</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Width</strong></td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>External Height</strong></td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                            <td contenteditable="true">______ m</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WEIGHTS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Tare Weight</strong></td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>ATM (Max Weight)</strong></td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Ball Weight</strong></td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Payload</strong></td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                            <td contenteditable="true">______ kg</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">CHASSIS & SUSPENSION</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Axle Configuration</strong></td>
+                            <td contenteditable="true">Single / Twin</td>
+                            <td contenteditable="true">Single / Twin</td>
+                            <td contenteditable="true">Single / Twin</td>
+                            <td contenteditable="true">Single / Twin</td>
+                            <td contenteditable="true">Single / Twin</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Suspension Type</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Ground Clearance</strong></td>
+                            <td contenteditable="true">______ mm</td>
+                            <td contenteditable="true">______ mm</td>
+                            <td contenteditable="true">______ mm</td>
+                            <td contenteditable="true">______ mm</td>
+                            <td contenteditable="true">______ mm</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Coupling Type</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">ELECTRICAL SYSTEM</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Solar Panel Size</strong></td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Battery Capacity</strong></td>
+                            <td contenteditable="true">______ Ah</td>
+                            <td contenteditable="true">______ Ah</td>
+                            <td contenteditable="true">______ Ah</td>
+                            <td contenteditable="true">______ Ah</td>
+                            <td contenteditable="true">______ Ah</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Battery Type</strong></td>
+                            <td contenteditable="true">AGM / Lithium</td>
+                            <td contenteditable="true">AGM / Lithium</td>
+                            <td contenteditable="true">AGM / Lithium</td>
+                            <td contenteditable="true">AGM / Lithium</td>
+                            <td contenteditable="true">AGM / Lithium</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Inverter</strong></td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                            <td contenteditable="true">______ W</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">SLEEPING ARRANGEMENTS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Main Bed Size</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Number of Bunks</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Bunk Dimensions</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WATER & GAS</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Fresh Water Tank</strong></td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Grey Water Tank</strong></td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                            <td contenteditable="true">______ L</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Gas Bottles</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Hot Water System</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">WARRANTY & DELIVERY</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Warranty Period</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Delivery Time</strong></td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                            <td contenteditable="true">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Delivery Cost</strong></td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                            <td contenteditable="true">$_____________</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">REQUIREMENTS CHECK</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Length 15-18ft?</strong></td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ 2+ Bunk Beds?</strong></td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Hard Top Roof?</strong></td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Under $100k?</strong></td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>✓ Off-Road Capable?</strong></td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                            <td contenteditable="true">Yes / No</td>
+                        </tr>
+
+                        <tr style="background: #f0f0f0; font-weight: bold;">
+                            <td style="position: sticky; left: 0; background: #f0f0f0; z-index: 9;">NOTES & RATING</td>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Overall Rating</strong></td>
+                            <td contenteditable="true">___/10</td>
+                            <td contenteditable="true">___/10</td>
+                            <td contenteditable="true">___/10</td>
+                            <td contenteditable="true">___/10</td>
+                            <td contenteditable="true">___/10</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Pros</strong></td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Cons</strong></td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                        </tr>
+                        <tr>
+                            <td style="position: sticky; left: 0; background: white; z-index: 9;"><strong>Additional Notes</strong></td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                            <td contenteditable="true" style="min-height: 60px;">_____________</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert success" style="margin-top: 30px;">
+                <h4>💡 Tips for Using This Table:</h4>
+                <ul>
+                    <li><strong>Editable:</strong> Click any cell to type directly into the table (works in most modern browsers)</li>
+                    <li><strong>Print:</strong> Use Ctrl+P (Cmd+P on Mac) and select "Print to PDF" to save your comparison</li>
+                    <li><strong>Scroll:</strong> The table scrolls horizontally - the first column stays fixed for easy reference</li>
+                    <li><strong>Add More:</strong> If you need more than 5 models, print this table multiple times</li>
+                    <li><strong>Mobile:</strong> Best viewed on tablet or desktop for full functionality</li>
+                </ul>
+            </div>
+
+            <h3>📝 Quick Comparison Summary</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Shortlist Top 3</h4>
+                    <ol>
+                        <li contenteditable="true">_______________________________</li>
+                        <li contenteditable="true">_______________________________</li>
+                        <li contenteditable="true">_______________________________</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Final Choice</h4>
+                    <p><strong>Selected Model:</strong></p>
+                    <p contenteditable="true" style="font-size: 1.2em; color: #667eea; padding: 10px; background: #f8f9ff; border-radius: 5px;">_______________________________</p>
+                    <p style="margin-top: 10px;"><strong>Reason:</strong></p>
+                    <p contenteditable="true" style="padding: 10px; background: #f8f9ff; border-radius: 5px; min-height: 60px;">_______________________________</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manufacturers Directory -->
+        <section id="manufacturers">
+            <h2>🏭 Complete Manufacturers Directory (35+ Brands)</h2>
+
+            <div class="alert info">
+                <strong>📚 Full Directory:</strong> This section lists ALL caravan manufacturers available in Australia,
+                organized by type. Use this to discover additional brands beyond the priority models listed above.
+            </div>
+
+            <h3>🇦🇺 Australian-Made Manufacturers (20+ brands)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Known For</th>
+                        <th>Key Models</th>
+                        <th>Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lotus Caravans</strong></td>
+                        <td>Family-friendly, compact layouts</td>
+                        <td>Trooper, Freelander, Sprint</td>
+                        <td>lotuscaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jayco</strong></td>
+                        <td>Premium, large manufacturer</td>
+                        <td>Journey Outback, Crosstrak</td>
+                        <td>jayco.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jurgens</strong></td>
+                        <td>Lightweight, est. 1952</td>
+                        <td>Lunagazer series</td>
+                        <td>jurgens.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Age Caravans</strong></td>
+                        <td>Value pricing, family layouts</td>
+                        <td>Manta Ray, Gecko</td>
+                        <td>newagecaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coromal</strong></td>
+                        <td>Diverse layouts</td>
+                        <td>Adventure/Soul/Thrill Seeker</td>
+                        <td>coromal.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Crusader Caravans</strong></td>
+                        <td>Family-focused, multiple bunks</td>
+                        <td>Musketeer series</td>
+                        <td>crusadercaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Goldstream RV</strong></td>
+                        <td>Off-road focus</td>
+                        <td>Storm, Tornado</td>
+                        <td>goldstreamrv.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Traveller Caravans</strong></td>
+                        <td>Modern layouts, good value</td>
+                        <td>Utopia, Prodigy</td>
+                        <td>travellercaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MDC Camper Trailers</strong></td>
+                        <td>Budget-friendly</td>
+                        <td>Off-road range</td>
+                        <td>mdctrailers.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paramount Caravans</strong></td>
+                        <td>Solid construction</td>
+                        <td>Family off-road series</td>
+                        <td>paramountcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kingston Caravans</strong></td>
+                        <td>Off-road focused</td>
+                        <td>Terrain series</td>
+                        <td>kingstoncaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Legend Caravans</strong></td>
+                        <td>Off-road capability</td>
+                        <td>Ranger, Explorer</td>
+                        <td>legendcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Track Trailer</strong></td>
+                        <td>Compact, innovative</td>
+                        <td>Tvan, FIRETAIL</td>
+                        <td>tracktrailer.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Innovative Caravans</strong></td>
+                        <td>Semi-custom builds</td>
+                        <td>Custom options</td>
+                        <td>innovativecaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compass Caravans</strong></td>
+                        <td>Custom builds</td>
+                        <td>Off-road family</td>
+                        <td>compasscaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kedron Caravans</strong></td>
+                        <td>Premium, excellent quality</td>
+                        <td>ATV Series</td>
+                        <td>kedron.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>JAWA Caravans</strong></td>
+                        <td>Rugged off-road</td>
+                        <td>Outback series</td>
+                        <td>jawacaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fortis Caravans</strong></td>
+                        <td>Military-grade, extreme off-road</td>
+                        <td>Offroad range</td>
+                        <td>fortiscaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Snowy River Caravans</strong></td>
+                        <td>Lightweight</td>
+                        <td>Compact off-road</td>
+                        <td>snowyrivercaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avan Caravans</strong></td>
+                        <td>Compact, fiberglass</td>
+                        <td>Cruiseliner, Aspire</td>
+                        <td>avan.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bushtracker</strong></td>
+                        <td>Extreme off-road, military-grade</td>
+                        <td>Compact models</td>
+                        <td>bushtracker.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kimberley Kampers</strong></td>
+                        <td>Extreme off-road</td>
+                        <td>Karavan models</td>
+                        <td>kimberleykampers.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blue Tongue Campers</strong></td>
+                        <td>Innovative designs</td>
+                        <td>Off-road range</td>
+                        <td>bluetonguecampers.com.au</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🌏 Imported Brands Available in Australia</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Brand</th>
+                        <th>Origin</th>
+                        <th>Price Range</th>
+                        <th>Notes</th>
+                        <th>Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Evernew</strong></td>
+                        <td>China</td>
+                        <td>$45k-70k</td>
+                        <td>Budget-friendly, established importer</td>
+                        <td>evernewcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Retreat Caravans</strong></td>
+                        <td>Imported/Assembled AU</td>
+                        <td>$55k-80k</td>
+                        <td>Mid-range, Hamilton/Fraser series</td>
+                        <td>retreatcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>On The Move</strong></td>
+                        <td>Imported</td>
+                        <td>$50k-75k</td>
+                        <td>Growing brand, BLADE/TRAXX series</td>
+                        <td>onthemove.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kingdom Caravans</strong></td>
+                        <td>China</td>
+                        <td>$45k-65k</td>
+                        <td>Budget pricing, inspect carefully</td>
+                        <td>kingdomcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Condor Caravans</strong></td>
+                        <td>Imported</td>
+                        <td>$50k-70k</td>
+                        <td>Value pricing, RV Family series</td>
+                        <td>condorcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Concept Caravans</strong></td>
+                        <td>Imported/Assembled AU</td>
+                        <td>$60k-85k</td>
+                        <td>European-style, Ascot/Euro range</td>
+                        <td>conceptcaravans.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avida</strong></td>
+                        <td>Part-imported</td>
+                        <td>$65k-90k</td>
+                        <td>Mix imported/local assembly</td>
+                        <td>avida.com.au</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Knaus</strong></td>
+                        <td>Germany</td>
+                        <td>$90k+</td>
+                        <td>Premium European, limited availability</td>
+                        <td>Limited dealers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hobby</strong></td>
+                        <td>Germany</td>
+                        <td>$90k+</td>
+                        <td>European engineering, select importers</td>
+                        <td>Limited dealers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Forest River</strong></td>
+                        <td>USA</td>
+                        <td>Varies</td>
+                        <td>Large US manufacturer, limited in AU</td>
+                        <td>Check importers</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert warning">
+                <strong>⚠️ Imported Brand Checklist:</strong>
+                <ul>
+                    <li>✓ Inspect build quality in person</li>
+                    <li>✓ Verify warranty is backed by Australian company</li>
+                    <li>✓ Check service center locations</li>
+                    <li>✓ Confirm parts availability</li>
+                    <li>✓ Join Facebook owner groups for reviews</li>
+                    <li>✓ Ask how long company has operated in Australia</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Inspection Checklist -->
+        <section id="checklist">
+            <h2>✅ Dealership Inspection Checklist</h2>
+
+            <div class="alert success">
+                <strong>💡 Pro Tip:</strong> Print this checklist and bring it to every dealership visit. Take photos of spec plates,
+                measure dimensions yourself, and don't rely solely on dealer claims.
+            </div>
+
+            <h3>📋 Before Your Visit</h3>
+            <div class="requirements-box">
+                <ul>
+                    <li>Confirm appointment with dealer</li>
+                    <li>Bring measuring tape, camera, and notebook</li>
+                    <li>Print this checklist</li>
+                    <li>Know your tow vehicle specifications (GVM, towing capacity, ball weight limit)</li>
+                    <li>Prepare your list of questions</li>
+                </ul>
+            </div>
+
+            <h3>🔍 External Inspection</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Structure & Build</h4>
+                    <ul>
+                        <li>✓ Confirm length is 15-18 feet</li>
+                        <li>✓ Verify hard top roof (no canvas/hybrid)</li>
+                        <li>✓ Check panel gaps and alignment</li>
+                        <li>✓ Inspect for damage or imperfections</li>
+                        <li>✓ Verify chassis is galvanized</li>
+                        <li>✓ Check ground clearance</li>
+                        <li>✓ Verify paint/finish quality</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Off-Road Features</h4>
+                    <ul>
+                        <li>✓ Check suspension type (independent preferred)</li>
+                        <li>✓ Inspect shock absorbers</li>
+                        <li>✓ Verify off-road tires</li>
+                        <li>✓ Check chassis protection</li>
+                        <li>✓ Inspect coupling (DO35/DO45)</li>
+                        <li>✓ Verify stone guard on front</li>
+                        <li>✓ Check wheel arch protection</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Storage & Access</h4>
+                    <ul>
+                        <li>✓ Check external storage compartments</li>
+                        <li>✓ Verify gas bottle storage</li>
+                        <li>✓ Check door quality and seals</li>
+                        <li>✓ Verify windows seal properly</li>
+                        <li>✓ Check external shower (if included)</li>
+                        <li>✓ Inspect awning (if included)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🏠 Internal Inspection</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Layout & Space</h4>
+                    <ul>
+                        <li>✓ Confirm at least 2 bunk beds</li>
+                        <li>✓ Measure bunk dimensions</li>
+                        <li>✓ Check bunk weight ratings</li>
+                        <li>✓ Verify main bed size (Queen+)</li>
+                        <li>✓ Test internal height (standing)</li>
+                        <li>✓ Check walkway width</li>
+                        <li>✓ Test access to bunks (ladder, rails)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Kitchen & Bathroom</h4>
+                    <ul>
+                        <li>✓ Check stove/cooktop</li>
+                        <li>✓ Verify fridge size and type</li>
+                        <li>✓ Check sink and tap quality</li>
+                        <li>✓ Verify toilet type (cassette)</li>
+                        <li>✓ Check shower size</li>
+                        <li>✓ Inspect ventilation</li>
+                        <li>✓ Verify hot water system</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Build Quality</h4>
+                    <ul>
+                        <li>✓ Open/close all cupboards</li>
+                        <li>✓ Check cabinet construction</li>
+                        <li>✓ Inspect upholstery quality</li>
+                        <li>✓ Verify flooring quality</li>
+                        <li>✓ Test all lights and switches</li>
+                        <li>✓ Check USB charging points</li>
+                        <li>✓ Verify 12V and 240V outlets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>⚡ Technical Systems</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>System</th>
+                        <th>What to Check</th>
+                        <th>Preferred Specs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Electrical</strong></td>
+                        <td>Solar wattage, battery capacity/type, inverter, management system</td>
+                        <td>300W+ solar, 200Ah+ battery, Lithium preferred</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Water</strong></td>
+                        <td>Fresh/grey tank capacity, pump quality, filter, hot water system</td>
+                        <td>100L+ fresh water, good pressure pump</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gas</strong></td>
+                        <td>Number and size of bottles, compliance certificate, what runs on gas</td>
+                        <td>2x 4kg or 1x 9kg bottles minimum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Climate</strong></td>
+                        <td>Ventilation (vents, fans), heating system, air conditioning</td>
+                        <td>Multiple roof vents, diesel heater ideal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>📝 Critical Measurements & Documentation</h3>
+            <div class="alert warning">
+                <strong>⚠️ Get These Exact Numbers:</strong>
+                <ul>
+                    <li><strong>Tare Weight:</strong> ___________ kg (empty weight)</li>
+                    <li><strong>ATM:</strong> ___________ kg (maximum loaded weight)</li>
+                    <li><strong>Ball Weight:</strong> ___________ kg (must be within your tow vehicle's limit)</li>
+                    <li><strong>External Length:</strong> ___________ m (must be 4.57-5.49m / 15-18ft)</li>
+                    <li><strong>External Width:</strong> ___________ m</li>
+                    <li><strong>External Height:</strong> ___________ m</li>
+                    <li><strong>Solar Panels:</strong> ___________ watts</li>
+                    <li><strong>Battery:</strong> ___________ Ah, Type: AGM / Lithium</li>
+                    <li><strong>Model & Serial #:</strong> ___________________________</li>
+                </ul>
+            </div>
+
+            <h3>❓ Key Questions for Dealer</h3>
+            <ol>
+                <li>What is the current delivery time?</li>
+                <li>Are there any current promotions or discounts?</li>
+                <li>Can I customize the layout or options?</li>
+                <li>What optional extras are available and at what cost?</li>
+                <li>Is a pre-delivery inspection included?</li>
+                <li>What is the warranty period and what does it cover?</li>
+                <li>Where is the closest service center?</li>
+                <li>Is delivery/transport included in the price?</li>
+                <li>What is the payment schedule?</li>
+                <li>Can I speak with current owners for reviews?</li>
+            </ol>
+
+            <div class="alert info">
+                <strong>📸 Photo Checklist:</strong> Take photos of: All exterior angles, interior layout, specification plates,
+                bed areas, kitchen, bathroom, storage, chassis, suspension, and any damage or concerns.
+            </div>
+        </section>
+
+        <!-- Research Resources -->
+        <section id="resources">
+            <h2>📚 Research Resources & Tools</h2>
+
+            <h3>📧 Dealer Contact Email Template</h3>
+            <div class="card" style="background: #f8f9ff; border: 2px solid #667eea;">
+                <h4>Copy & Use This Template:</h4>
+                <pre style="background: white; padding: 15px; border-radius: 5px; overflow-x: auto;">
+Subject: Inquiry - Off-Road Caravan with Family Layout
+
+Hi [Dealer Name],
+
+I'm in the market for a new off-road caravan and would like to know
+if you have models that meet the following requirements:
+
+- Length: 15-18 feet
+- Layout: At least 2 bunk beds for children
+- Roof: Hard top (not hybrid)
+- Budget: Up to $100,000 AUD
+- Off-road capable
+
+Could you please provide:
+1. Models that fit these requirements
+2. Specification sheets or brochures
+3. Current pricing and any promotions
+4. Availability for inspection
+
+I'm particularly interested in [specific model if known].
+
+Thank you,
+[Your name]
+[Your contact details]
+                </pre>
+            </div>
+
+            <h3>📱 Phone Script</h3>
+            <div class="card" style="background: #e8f5e9; border: 2px solid #4caf50;">
+                <p><em>"Hi, I'm looking for a new off-road caravan between 15 and 18 feet with at least 2 bunk beds
+                for my children, a hard top roof, and a budget of around $100,000. Do you have any models that fit
+                these requirements? I'd like to visit to see the specifications and layout."</em></p>
+            </div>
+
+            <h3>🔤 Australian Caravan Terminology</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tare Weight</strong></td>
+                        <td>Empty weight of caravan (no water, gas, supplies)</td>
+                        <td>Base weight before you add anything</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ATM</strong></td>
+                        <td>Aggregate Trailer Mass - Maximum total weight fully loaded</td>
+                        <td>Must not exceed your vehicle's towing capacity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ball Weight</strong></td>
+                        <td>Downward force on tow ball (typically 10-15% of ATM)</td>
+                        <td>Must be within your vehicle's ball weight limit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payload</strong></td>
+                        <td>ATM minus Tare - How much you can load</td>
+                        <td>Determines how much gear/water/food you can carry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DO35/DO45</strong></td>
+                        <td>Popular Australian off-road coupling systems</td>
+                        <td>Better for off-road than standard ball coupling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Checker Plate</strong></td>
+                        <td>Diamond-pattern protective metal sheeting</td>
+                        <td>Protects chassis and storage areas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MPPT</strong></td>
+                        <td>Maximum Power Point Tracking solar controller</td>
+                        <td>More efficient than PWM controllers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AGM Battery</strong></td>
+                        <td>Absorbed Glass Mat battery</td>
+                        <td>Cheaper, heavier, shorter life than Lithium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LiFePO4</strong></td>
+                        <td>Lithium Iron Phosphate battery</td>
+                        <td>Lighter, longer life, more expensive than AGM</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>📏 Size Conversion Chart</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Feet to Meters</h4>
+                    <table>
+                        <tr><td><strong>15 feet</strong></td><td>= 4.57 meters</td></tr>
+                        <tr><td><strong>16 feet</strong></td><td>= 4.88 meters</td></tr>
+                        <tr><td><strong>17 feet</strong></td><td>= 5.18 meters</td></tr>
+                        <tr><td><strong>18 feet</strong></td><td>= 5.49 meters</td></tr>
+                    </table>
+                </div>
+                <div class="card">
+                    <h4>Common Widths</h4>
+                    <table>
+                        <tr><td><strong>7 feet</strong></td><td>= 2.13 meters</td></tr>
+                        <tr><td><strong>7.5 feet</strong></td><td>= 2.29 meters</td></tr>
+                        <tr><td><strong>8 feet</strong></td><td>= 2.44 meters</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <h3>🌐 Online Resources</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Sales Platforms</h4>
+                    <ul>
+                        <li>caravancampingsales.com.au</li>
+                        <li>caravansales.com.au</li>
+                        <li>tradingpost.com.au</li>
+                        <li>gumtree.com.au (mostly used)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Review Sites</h4>
+                    <ul>
+                        <li>rvdaily.com.au</li>
+                        <li>caravancampingmag.com.au</li>
+                        <li>exploroz.com (off-road focus)</li>
+                        <li>caravanrvcamping.com.au</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Forums & Communities</h4>
+                    <ul>
+                        <li>myswag.org (popular forum)</li>
+                        <li>exploroz.com/forum</li>
+                        <li>caravanclub.com.au</li>
+                        <li>Facebook: "[Brand] Owners Group"</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>YouTube Channels</h4>
+                    <ul>
+                        <li>Snowys</li>
+                        <li>CampingWithSteve</li>
+                        <li>Lifestyle Overland</li>
+                        <li>Caravan HQ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>📅 Caravan Shows & Best Time to Buy</h3>
+            <div class="alert success">
+                <h4>Major Caravan Shows in Australia:</h4>
+                <ul>
+                    <li><strong>Sydney Caravan & Camping Show</strong> - Annual event</li>
+                    <li><strong>Melbourne Leisurefest</strong> - Large selection</li>
+                    <li><strong>Brisbane Caravan, Camping & Touring Supershow</strong> - Comprehensive</li>
+                    <li><strong>Perth Caravan & Camping Show</strong> - Western Australia</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>💡 Benefits:</strong> Show pricing (often 10-20% off), compare multiple brands
+                in one location, special promotions, speak directly with manufacturers, see new releases.</p>
+                <p><strong>💰 Best Times to Buy:</strong> End of financial year (June), caravan shows, end of model year
+                (stock clearance), winter months (lower demand).</p>
+            </div>
+
+            <h3>💰 Budget Planning</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Purchase Costs</h4>
+                    <ul>
+                        <li>Base caravan: $XX,XXX</li>
+                        <li>Optional extras: $X,XXX</li>
+                        <li>Delivery/transport: $XXX</li>
+                        <li>Registration: $200-600/year</li>
+                        <li>Insurance: $800-1,500/year</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Setup Costs</h4>
+                    <ul>
+                        <li>Towing equipment: $500-2,000</li>
+                        <li>Weight distribution hitch: $500-1,000</li>
+                        <li>Brake controller: $200-500</li>
+                        <li>Extended mirrors: $100-300</li>
+                        <li>Safety gear: $500-1,000</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Ongoing Costs</h4>
+                    <ul>
+                        <li>Annual service: $300-600</li>
+                        <li>Storage (if needed): $50-150/month</li>
+                        <li>Roadside assistance: $150-300/year</li>
+                        <li>Fuel increase: Variable</li>
+                        <li>Campground fees: $30-80/night</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Optional Upgrades</h4>
+                    <ul>
+                        <li>Solar upgrade: $1,000-3,000</li>
+                        <li>Lithium battery: $2,000-5,000</li>
+                        <li>Annexe: $500-2,000</li>
+                        <li>Off-road tires: $800-1,500</li>
+                        <li>Water filtration: $300-800</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>✅ Next Steps - Action Plan</h3>
+            <div class="alert info">
+                <ol>
+                    <li><strong>Week 1:</strong> Read this guide thoroughly. Decide Australian vs Imported preference. Shortlist 5-10 models.</li>
+                    <li><strong>Week 2:</strong> Contact dealers using email template. Request brochures. Join 2-3 owner Facebook groups.</li>
+                    <li><strong>Week 3:</strong> Visit dealers with inspection checklist. Take photos. Fill comparison table with specs.</li>
+                    <li><strong>Week 4:</strong> Create shortlist of top 3 models. Re-visit with family. Check insurance quotes. Verify tow vehicle compatibility.</li>
+                    <li><strong>Decision:</strong> Negotiate pricing. Check for promotions. Consider timing (shows, end of year). Make purchase!</li>
+                </ol>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 30px;">
+                <h3 style="color: white; border: none; margin: 0 0 15px 0;">🎉 You're Ready to Start!</h3>
+                <p style="font-size: 1.1em;">You now have everything you need to make an informed caravan purchase decision.
+                Start with the High Priority models, use the inspection checklist, and don't rush the process.
+                The perfect family off-road caravan is out there waiting for you!</p>
+                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">📁 All research data also available in markdown files for easy reference</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Caravan Research Project</strong></p>
+        <p>Last Updated: November 26, 2025</p>
+        <p>Total Research: 35+ Manufacturers | 24 Priority Models | Complete Comparison Guide</p>
+    </footer>
+
+    <script>
+        // Delete model functionality with detailed model information
+        const STORAGE_KEY = 'deletedCaravanModels';
+        const FILE_NAME = 'deleted_caravan_models.json';
+        let deletedModels = [];
+
+        // Extract model information from DOM element
+        function extractModelInfo(modelId) {
+            const element = document.querySelector(`[data-model-id="${modelId}"]`);
+            if (!element) return null;
+
+            const info = {
+                id: modelId,
+                rank: modelId,
+                deletedDate: new Date().toISOString(),
+            };
+
+            // Check if it's a card or table row
+            if (element.tagName === 'DIV') {
+                // Card format
+                const h4 = element.querySelector('h4');
+                const priceTag = element.querySelector('.price-tag');
+                const badge = element.querySelector('.badge');
+
+                if (h4) {
+                    const headerText = h4.textContent.replace(/Delete/g, '').trim();
+                    const parts = headerText.split('-');
+                    if (parts.length >= 2) {
+                        info.brandModel = headerText.split(/Australian Made|Imported/)[0].trim();
+                        const brandModelParts = info.brandModel.split('.');
+                        if (brandModelParts.length > 1) {
+                            info.manufacturer = brandModelParts[1].split('-')[0].trim();
+                            info.model = brandModelParts[1].split('-').slice(1).join('-').trim();
+                        }
+                    }
+                }
+
+                if (priceTag) {
+                    info.priceRange = priceTag.textContent.trim();
+                }
+
+                if (badge) {
+                    info.origin = badge.textContent.trim();
+                }
+
+                // Determine priority category based on ID range
+                if (modelId >= 1 && modelId <= 5) {
+                    info.priority = 'High Priority';
+                } else if (modelId >= 15 && modelId <= 20) {
+                    info.priority = 'Budget-Friendly Imported';
+                } else if (modelId >= 21 && modelId <= 24) {
+                    info.priority = 'Premium Options';
+                }
+
+            } else if (element.tagName === 'TR') {
+                // Table row format
+                const cells = element.querySelectorAll('td');
+                if (cells.length >= 3) {
+                    info.brandModel = cells[1].textContent.trim();
+                    const brandModelParts = info.brandModel.split('-');
+                    if (brandModelParts.length > 0) {
+                        info.manufacturer = brandModelParts[0].trim();
+                        info.model = brandModelParts.slice(1).join('-').trim();
+                    }
+                    info.priceRange = cells[2].textContent.trim();
+                    info.notes = cells[3] ? cells[3].textContent.trim() : '';
+                    info.website = cells[4] ? cells[4].textContent.trim() : '';
+                }
+
+                // Determine priority and origin based on ID range
+                if (modelId >= 6 && modelId <= 14) {
+                    info.priority = 'Medium Priority - Australian Made';
+                    info.origin = 'Australian Made';
+                } else if (modelId >= 21 && modelId <= 24) {
+                    info.priority = 'Premium Options';
+                    info.origin = 'Australian Made';
+                }
+            }
+
+            return info;
+        }
+
+        // Load deleted models from localStorage on page load
+        function loadDeletedModels() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                // Handle both old format (array of IDs) and new format (array of objects)
+                if (parsed.length > 0 && typeof parsed[0] === 'number') {
+                    // Old format - convert to new format
+                    deletedModels = parsed.map(id => ({ id: id, rank: id, legacy: true }));
+                    saveDeletedModels(); // Save in new format
+                } else {
+                    deletedModels = parsed;
+                }
+            }
+
+            deletedModels.forEach(model => {
+                hideModel(model.id);
+            });
+            updateDeletedCount();
+        }
+
+        // Hide a model from the display
+        function hideModel(modelId) {
+            const element = document.querySelector(`[data-model-id="${modelId}"]`);
+            if (element) {
+                element.classList.add('deleted-model');
+            }
+        }
+
+        // Save deleted models to localStorage
+        function saveDeletedModels() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(deletedModels));
+            updateDeletedCount();
+        }
+
+        // Export deleted models to a JSON file
+        function exportDeletedModels() {
+            const exportData = {
+                version: "1.0",
+                lastUpdated: new Date().toISOString().split('T')[0],
+                description: "This file stores information about caravan models that have been excluded from consideration. Each entry contains detailed information to uniquely identify the deleted model.",
+                deletedModels: deletedModels
+            };
+
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = FILE_NAME;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            alert('✅ File exported!\n\nIMPORTANT: Save this file as:\n' + FILE_NAME + '\n\nIn your project folder:\n/Users/oweinmann/Workspace/Campers/\n\nThis will keep your deletions synced across sessions.');
+        }
+
+        // Import deleted models from a JSON file
+        function importDeletedModels() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        try {
+                            const imported = JSON.parse(event.target.result);
+
+                            // Handle both formats: new structured format and old array format
+                            if (imported.deletedModels && Array.isArray(imported.deletedModels)) {
+                                // New structured format
+                                deletedModels = imported.deletedModels;
+                            } else if (Array.isArray(imported)) {
+                                // Old array format
+                                deletedModels = imported;
+                            } else {
+                                alert('Invalid file format. Expected deletedModels array.');
+                                return;
+                            }
+
+                            saveDeletedModels();
+                            location.reload();
+                        } catch (error) {
+                            alert('Error reading file: ' + error.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        // Delete a model
+        function deleteModel(modelId) {
+            if (confirm('Are you sure you want to delete this model? It will be excluded from all future comparisons.')) {
+                // Check if already deleted
+                const alreadyDeleted = deletedModels.find(m => m.id === modelId);
+                if (!alreadyDeleted) {
+                    const modelInfo = extractModelInfo(modelId);
+                    if (modelInfo) {
+                        deletedModels.push(modelInfo);
+                        saveDeletedModels();
+                        exportDeletedModels();
+                    }
+                }
+                hideModel(modelId);
+            }
+        }
+
+        // Restore all deleted models
+        function restoreAllModels() {
+            if (confirm('Restore all deleted models? This will show all 24 priority models again.')) {
+                deletedModels = [];
+                localStorage.removeItem(STORAGE_KEY);
+                document.querySelectorAll('.deleted-model').forEach(element => {
+                    element.classList.remove('deleted-model');
+                });
+                updateDeletedCount();
+                exportDeletedModels();
+            }
+        }
+
+        // View deleted models in a modal
+        function viewDeletedModels() {
+            if (deletedModels.length === 0) {
+                alert('No models have been deleted yet.');
+                return;
+            }
+
+            let html = '<div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 10000; display: flex; align-items: center; justify-content: center;" onclick="this.remove()">';
+            html += '<div style="background: white; padding: 30px; border-radius: 10px; max-width: 800px; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">';
+            html += '<h2 style="color: #667eea; margin-bottom: 20px;">🗑️ Deleted Models (' + deletedModels.length + ')</h2>';
+
+            deletedModels.forEach((model, index) => {
+                html += '<div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background: #f9f9f9;">';
+                html += '<div style="display: flex; justify-content: space-between; align-items: start;">';
+                html += '<div style="flex: 1;">';
+                html += '<strong style="font-size: 1.1em; color: #333;">' + (model.brandModel || 'Model #' + model.id) + '</strong><br>';
+                if (model.manufacturer) html += '<span style="color: #666;">Manufacturer: ' + model.manufacturer + '</span><br>';
+                if (model.model) html += '<span style="color: #666;">Model: ' + model.model + '</span><br>';
+                if (model.priceRange) html += '<span style="color: #4caf50;">Price: ' + model.priceRange + '</span><br>';
+                if (model.origin) html += '<span style="color: #2196f3;">Origin: ' + model.origin + '</span><br>';
+                if (model.priority) html += '<span style="color: #ff9800;">Category: ' + model.priority + '</span><br>';
+                if (model.deletedDate) html += '<span style="color: #999; font-size: 0.9em;">Deleted: ' + new Date(model.deletedDate).toLocaleDateString() + '</span>';
+                html += '</div>';
+                html += '<button onclick="restoreSingleModel(' + model.id + ')" style="background: #4caf50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Restore</button>';
+                html += '</div></div>';
+            });
+
+            html += '<button onclick="this.closest(\'div[style*=fixed]\').remove()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px;">Close</button>';
+            html += '</div></div>';
+
+            document.body.insertAdjacentHTML('beforeend', html);
+        }
+
+        // Restore a single model
+        function restoreSingleModel(modelId) {
+            deletedModels = deletedModels.filter(m => m.id !== modelId);
+            saveDeletedModels();
+            location.reload();
+        }
+
+        // Update the deleted count display
+        function updateDeletedCount() {
+            const countElement = document.getElementById('deleted-count');
+            if (countElement) {
+                const count = deletedModels.length;
+                countElement.textContent = count > 0 ? `${count} model${count !== 1 ? 's' : ''} deleted` : 'No models deleted';
+                countElement.style.color = count > 0 ? '#f44336' : '#666';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', loadDeletedModels);
+    </script>
+</body>
+</html>

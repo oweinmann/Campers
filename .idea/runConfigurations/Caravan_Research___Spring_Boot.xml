@@ -1,0 +1,33 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Caravan Research - Spring Boot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="caravan-research" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.caravan.CaravanResearchApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" method="NONE" />
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.caravan.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <envs>
+      <env name="SPRING_PROFILES_ACTIVE" value="dev" />
+    </envs>
+    <option name="PROGRAM_PARAMETERS" value="" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="PASS_PARENT_ENVS" value="true" />
+    <option name="USE_CLASSPATH_JAR" value="false" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    <option name="ENABLE_DEBUG_MODE" value="false" />
+    <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <BrowserUrlConfiguration>
+      <browser url="http://localhost:8080" name="Chrome" family="CHROME" />
+      <option name="START_JAVASCRIPT_DEBUGGER" value="false" />
+    </BrowserUrlConfiguration>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

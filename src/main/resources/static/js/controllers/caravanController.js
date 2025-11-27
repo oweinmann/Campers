@@ -11,6 +11,10 @@ app.controller('CaravanController', ['$scope', 'CaravanService', function($scope
         maxPrice: 100000
     };
 
+    // Sorting properties
+    $scope.sortColumn = 'make';
+    $scope.sortReverse = false;
+
     // Load all caravans
     $scope.loadCaravans = function() {
         CaravanService.getAllCaravans().then(function(response) {
@@ -42,6 +46,24 @@ app.controller('CaravanController', ['$scope', 'CaravanService', function($scope
             maxPrice: 100000
         };
         $scope.filteredCaravans = $scope.caravans;
+    };
+
+    // Sort by column
+    $scope.sortBy = function(column) {
+        if ($scope.sortColumn === column) {
+            $scope.sortReverse = !$scope.sortReverse;
+        } else {
+            $scope.sortColumn = column;
+            $scope.sortReverse = false;
+        }
+    };
+
+    // Get sort icon for column
+    $scope.getSortIcon = function(column) {
+        if ($scope.sortColumn !== column) {
+            return '';
+        }
+        return $scope.sortReverse ? '▼' : '▲';
     };
 
     // Delete caravan

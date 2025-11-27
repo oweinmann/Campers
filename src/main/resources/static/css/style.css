@@ -61,6 +61,22 @@ body {
     padding: 1rem;
 }
 
+/* Sortable table headers */
+.table thead th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.table thead th.sortable:hover {
+    background-color: #dee2e6;
+    color: #0d6efd;
+}
+
+.table thead th.sortable:active {
+    background-color: #ced4da;
+}
+
 .table tbody tr:hover {
     background-color: #f8f9fa;
 }

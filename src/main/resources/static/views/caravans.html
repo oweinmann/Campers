@@ -49,18 +49,18 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Origin</th>
-                    <th>Priority</th>
-                    <th>Price</th>
-                    <th>Bunk Beds</th>
-                    <th>Status</th>
+                    <th class="sortable" ng-click="sortBy('make')">Make {{getSortIcon('make')}}</th>
+                    <th class="sortable" ng-click="sortBy('model')">Model {{getSortIcon('model')}}</th>
+                    <th class="sortable" ng-click="sortBy('origin')">Origin {{getSortIcon('origin')}}</th>
+                    <th class="sortable" ng-click="sortBy('priority')">Priority {{getSortIcon('priority')}}</th>
+                    <th class="sortable" ng-click="sortBy('price')">Price {{getSortIcon('price')}}</th>
+                    <th class="sortable" ng-click="sortBy('bunkBeds')">Bunk Beds 5 {{getSortIcon('bunkBeds')}}</th>
+                    <th class="sortable" ng-click="sortBy('status')">Status {{getSortIcon('status')}}</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="caravan in filteredCaravans">
+                <tr ng-repeat="caravan in filteredCaravans | orderBy:sortColumn:sortReverse">
                     <td>{{caravan.make}}</td>
                     <td>{{caravan.model}}</td>
                     <td>

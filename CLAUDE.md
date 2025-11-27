@@ -41,3 +41,15 @@ When assisting with this project:
 3. Present data in structured formats (tables, CSV, or markdown) for easy comparison
 4. Include source URLs or dealer information when gathering specifications
 5. Be aware of Australian caravan terminology (e.g., ATM = Aggregate Trailer Mass, Tare weight, ball weight)
+
+## Excluded Caravans
+
+**IMPORTANT**: When conducting web searches or fetching information about caravans, **EXCLUDE** any makes and models that are marked as "deleted" in the database.
+
+Before researching or recommending caravans:
+1. Query the database to get the list of caravans where `deleted = true`
+2. Do NOT fetch information about these excluded makes/models
+3. Do NOT include deleted caravans in any research, comparisons, or recommendations
+4. Only work with active (non-deleted) caravans from the database
+
+This ensures that research time is focused only on viable caravan options and excludes models that have been ruled out.

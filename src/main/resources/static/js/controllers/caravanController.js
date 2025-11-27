@@ -1,7 +1,7 @@
 /**
  * AngularJS Controller for Caravan List
  */
-app.controller('CaravanController', ['$scope', 'CaravanService', function($scope, CaravanService) {
+app.controller('CaravanController', ['$scope', '$location', 'CaravanService', 'SearchResultService', function($scope, $location, CaravanService, SearchResultService) {
     $scope.caravans = [];
     $scope.filteredCaravans = [];
     $scope.filter = {
@@ -74,6 +74,31 @@ app.controller('CaravanController', ['$scope', 'CaravanService', function($scope
             }, function(error) {
                 console.error('Error deleting caravan:', error);
                 alert('Failed to delete caravan');
+            });
+        }
+    };
+
+    // Search for used models
+    $scope.searchUsedModels = function(caravan) {
+        // Show confirmation and start automated search
+        if (confirm('Search for used ' + caravan.make + ' ' + caravan.model + ' listings online?\n\nThis will search across multiple Australian caravan websites.')) {
+            // Set loading state
+            $scope.searchingCaravan = caravan;
+
+            // Perform automated search
+            SearchResultService.performAutomatedSearch(caravan.make, caravan.model).then(function(response) {
+                $scope.searchingCaravan = null;
+                var results = response.data;
+
+                // Show results summary
+                alert('Search completed!\n\nFound ' + results.totalResults + ' results for ' + caravan.make + ' ' + caravan.model + '\n\nClick OK to view the results.');
+
+                // Navigate to search results page to view the results
+                $location.path('/search-results').search({make: caravan.make, model: caravan.model, searchId: results.id});
+            }, function(error) {
+                $scope.searchingCaravan = null;
+                console.error('Error performing automated search:', error);
+                alert('Failed to perform automated search. Please try again or add results manually.');
             });
         }
     };

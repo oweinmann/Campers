@@ -7,7 +7,7 @@ INSERT INTO manufacturers (brand, origin, website, known_for, key_models) VALUES
 ('Jayco', 'Australian Made', 'https://www.jayco.com.au', 'Large manufacturer, good build quality, family-focused', 'Journey Outback, Crosstrak'),
 ('Jurgens', 'Australian Made', 'https://www.jurgens.com.au', 'Light on weight caravans', 'Lunagazer'),
 ('Coromal', 'Australian Made', 'https://www.coromal.com.au', 'Australian-made, diverse layouts', 'Adventure Seeker, Soul Seeker, Thrill Seeker'),
-('MDC Camper Trailers', 'Australian Made', 'https://www.mdctrailers.com.au', 'Budget-friendly options, good value', 'Off-road range'),
+('MDC Camper Trailers', 'Australian Made', 'https://www.https://www.marketdirect.com.au/', 'Budget-friendly options, good value', 'Off-road range'),
 ('Innovative Caravans', 'Australian Made', 'https://www.innovativecaravans.com.au', 'Semi-custom builds, family layouts', 'Custom builds'),
 ('Paramount Caravans', 'Australian Made', 'https://www.paramountcaravans.com.au', 'Solid construction, family-friendly', 'Off-road family range'),
 ('Crusader Caravans', 'Australian Made', 'https://www.crusadercaravans.com.au', 'Family layouts, multiple bunk options', 'Musketeer'),
@@ -43,7 +43,7 @@ INSERT INTO caravans (make, model, origin, price, website, external_length, tare
 ('Coromal', 'Adventure Seeker 16.6ft', 'Australian Made', 85000, 'https://www.coromal.com.au', '16.6ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Australian-made, diverse layouts, established brand', 'Confirm hard top on specific model', false),
 
 -- Medium Priority Australian-Made
-('MDC Camper Trailers', 'Off-Road Family 16ft', 'Australian Made', 62000, 'https://www.mdctrailers.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Budget-friendly, off-road capable', 'Check build quality in person', false),
+('MDC Camper Trailers', 'Off-Road Family 16ft', 'Australian Made', 62000, 'https://www.https://www.marketdirect.com.au/', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Budget-friendly, off-road capable', 'Check build quality in person', false),
 
 ('Goldstream RV', 'Storm 17ft', 'Australian Made', 82000, 'https://www.goldstreamrv.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Off-road focus, family layouts', 'Check for bunk bed configurations', false),
 

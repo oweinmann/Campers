@@ -55,7 +55,7 @@ This document lists manufacturers and models to research that potentially meet t
 - **Notes**: Check which series offers bunk bed configurations
 
 ### MDC Camper Trailers
-- **Website**: mdctrailers.com.au
+- **Website**: https://www.marketdirect.com.au/
 - **Models to Investigate**:
   - Off-road caravan range
   - Family models

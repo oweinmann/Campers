@@ -55,7 +55,7 @@ Based on the Australian off-road caravan market, these models are most likely to
 - **Why Consider**: Budget-friendly, often well under $100k
 - **Expected Price Range**: $50,000 - $75,000
 - **Considerations**: Lower price point, check build quality in person
-- **Where to Find Info**: mdctrailers.com.au
+- **Where to Find Info**: https://www.marketdirect.com.au/
 
 ### 7. Goldstream RV - Storm/Tornado Series
 - **Why Consider**: Off-road focus, Australian-made, family layouts

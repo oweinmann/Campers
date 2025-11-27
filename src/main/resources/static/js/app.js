@@ -38,6 +38,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'views/comparison.html',
             controller: 'ComparisonController'
         })
+        .when('/search-results', {
+            templateUrl: 'views/search-results.html',
+            controller: 'SearchResultController'
+        })
         .otherwise({
             redirectTo: '/'
         });

@@ -12,16 +12,14 @@ import java.util.List;
 @Repository
 public interface CaravanRepository extends JpaRepository<Caravan, Long> {
 
-    List<Caravan> findByDeletedFalse();
+    List<Caravan> findByPriority(Caravan.Priority priority);
 
-    List<Caravan> findByDeletedFalseAndPriority(Caravan.Priority priority);
+    List<Caravan> findByOrigin(String origin);
 
-    List<Caravan> findByDeletedFalseAndOrigin(String origin);
+    List<Caravan> findByMake(String make);
 
-    List<Caravan> findByDeletedFalseAndMake(String make);
+    List<Caravan> findByPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
 
-    List<Caravan> findByDeletedFalseAndPriceBetween(BigDecimal minPrice, BigDecimal maxPrice);
-
-    @Query("SELECT c FROM Caravan c WHERE c.deleted = false AND c.bunkBeds >= :minBunkBeds")
+    @Query("SELECT c FROM Caravan c WHERE c.bunkBeds >= :minBunkBeds")
     List<Caravan> findByMinimumBunkBeds(@Param("minBunkBeds") Integer minBunkBeds);
 }

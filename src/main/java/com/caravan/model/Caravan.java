@@ -85,9 +85,6 @@ public class Caravan {
     @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @Column(nullable = false)
-    private Boolean deleted = false;
-
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
@@ -98,9 +95,6 @@ public class Caravan {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
-        if (deleted == null) {
-            deleted = false;
-        }
     }
 
     @PreUpdate

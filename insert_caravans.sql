@@ -30,55 +30,55 @@ INSERT INTO manufacturers (brand, origin, website, known_for, key_models) VALUES
 ('Avida', 'Imported', 'https://www.avida.com.au', 'Mix of imported and local assembly', 'Emerald, Sapphire');
 
 -- Insert High Priority Caravans
-INSERT INTO caravans (make, model, origin, price, website, external_length, tare_weight, atm, ball_weight, main_bed, bunk_beds, bunk_type, priority, status, features, notes, deleted) VALUES
+INSERT INTO caravans (make, model, origin, price, website, external_length, tare_weight, atm, ball_weight, main_bed, bunk_beds, bunk_type, priority, status, features, notes) VALUES
 -- High Priority Models
-('Lotus Caravans', 'Trooper 16ft Family', 'Australian Made', 85000, 'https://www.lotuscaravans.com.au/caravans/trooper/', '16ft (4.88m)', 1850, 2500, 220, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Compact family layout, Australian-made, off-road capable', 'Known for good reputation, check specific family layout availability', false),
+('Lotus Caravans', 'Trooper 16ft Family', 'Australian Made', 85000, 'https://www.lotuscaravans.com.au/caravans/trooper/', '16ft (4.88m)', 1850, 2500, 220, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Compact family layout, Australian-made, off-road capable', 'Known for good reputation, check specific family layout availability'),
 
-('Jurgens', 'Lunagazer J17', 'Australian Made', 80000, 'https://www.jurgens.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Light on weight, established brand, family-focused', 'Verify off-road package included', false),
+('Jurgens', 'Lunagazer J17', 'Australian Made', 80000, 'https://www.jurgens.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Light on weight, established brand, family-focused', 'Verify off-road package included'),
 
-('New Age Caravans', 'Manta Ray 16ft Family', 'Australian Made', 75000, 'https://www.newagecaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Good value, popular family layouts', 'Often under $100k budget', false),
+('New Age Caravans', 'Manta Ray 16ft Family', 'Australian Made', 75000, 'https://www.newagecaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Good value, popular family layouts', 'Often under $100k budget'),
 
-('Crusader Caravans', 'Musketeer 17ft Bunk', 'Australian Made', 82000, 'https://www.crusadercaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'HIGH', 'RESEARCHING', 'Known for family layouts with multiple bunk options', 'Musketeer series designed for families', false),
+('Crusader Caravans', 'Musketeer 17ft Bunk', 'Australian Made', 82000, 'https://www.crusadercaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'HIGH', 'RESEARCHING', 'Known for family layouts with multiple bunk options', 'Musketeer series designed for families'),
 
-('Coromal', 'Adventure Seeker 16.6ft', 'Australian Made', 85000, 'https://www.coromal.com.au', '16.6ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Australian-made, diverse layouts, established brand', 'Confirm hard top on specific model', false),
+('Coromal', 'Adventure Seeker 16.6ft', 'Australian Made', 85000, 'https://www.coromal.com.au', '16.6ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', 'Australian-made, diverse layouts, established brand', 'Confirm hard top on specific model'),
 
 -- Medium Priority Australian-Made
-('MDC Camper Trailers', 'Off-Road Family 16ft', 'Australian Made', 62000, 'https://www.https://www.marketdirect.com.au/', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Budget-friendly, off-road capable', 'Check build quality in person', false),
+('MDC Camper Trailers', 'Off-Road Family 16ft', 'Australian Made', 62000, 'https://www.https://www.marketdirect.com.au/', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Budget-friendly, off-road capable', 'Check build quality in person'),
 
-('Goldstream RV', 'Storm 17ft', 'Australian Made', 82000, 'https://www.goldstreamrv.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Off-road focus, family layouts', 'Check for bunk bed configurations', false),
+('Goldstream RV', 'Storm 17ft', 'Australian Made', 82000, 'https://www.goldstreamrv.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Off-road focus, family layouts', 'Check for bunk bed configurations'),
 
-('Traveller Caravans', 'Utopia 16ft Family', 'Australian Made', 77000, 'https://www.travellercaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Modern layouts, good value, off-road capable', 'Check which series has bunk beds', false),
+('Traveller Caravans', 'Utopia 16ft Family', 'Australian Made', 77000, 'https://www.travellercaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Modern layouts, good value, off-road capable', 'Check which series has bunk beds'),
 
-('Paramount Caravans', 'Family Off-Road 17ft', 'Australian Made', 80000, 'https://www.paramountcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Solid construction, family-focused designs', 'Verify specifications', false),
+('Paramount Caravans', 'Family Off-Road 17ft', 'Australian Made', 80000, 'https://www.paramountcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Solid construction, family-focused designs', 'Verify specifications'),
 
-('Track Trailer', 'Tvan Family Room', 'Australian Made', 90000, 'https://www.tracktrailer.com.au/tvan', '16ft', NULL, NULL, NULL, 'Queen', 2, 'Family Room', 'MEDIUM', 'RESEARCHING', 'Compact design, innovative layouts', 'Verify bunks in family room configuration, confirm hard top', false),
+('Track Trailer', 'Tvan Family Room', 'Australian Made', 90000, 'https://www.tracktrailer.com.au/tvan', '16ft', NULL, NULL, NULL, 'Queen', 2, 'Family Room', 'MEDIUM', 'RESEARCHING', 'Compact design, innovative layouts', 'Verify bunks in family room configuration, confirm hard top'),
 
-('Kingston Caravans', 'Terrain 17ft', 'Australian Made', 80000, 'https://www.kingstoncaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Off-road focused, family-friendly options', 'Verify specifications', false),
+('Kingston Caravans', 'Terrain 17ft', 'Australian Made', 80000, 'https://www.kingstoncaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Off-road focused, family-friendly options', 'Verify specifications'),
 
-('Legend Caravans', 'Ranger 16ft', 'Australian Made', 85000, 'https://www.legendcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Off-road capability, Australian-made', 'Verify bunk configurations available', false),
+('Legend Caravans', 'Ranger 16ft', 'Australian Made', 85000, 'https://www.legendcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'MEDIUM', 'RESEARCHING', 'Off-road capability, Australian-made', 'Verify bunk configurations available'),
 
-('Compass Caravans', 'Off-Road Family 17ft', 'Australian Made', 82000, 'https://www.compasscaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Custom builds, family-friendly layouts', 'May offer bunk configurations', false),
+('Compass Caravans', 'Off-Road Family 17ft', 'Australian Made', 82000, 'https://www.compasscaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'MEDIUM', 'RESEARCHING', 'Custom builds, family-friendly layouts', 'May offer bunk configurations'),
 
 -- Budget-Friendly Imported Brands
-('Evernew', 'E16 Family Offroad', 'Imported', 57000, 'https://www.evernewcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Budget-friendly, significant cost savings', 'Inspect build quality carefully, check warranty. Well under budget', false),
+('Evernew', 'E16 Family Offroad', 'Imported', 57000, 'https://www.evernewcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Budget-friendly, significant cost savings', 'Inspect build quality carefully, check warranty. Well under budget'),
 
-('Retreat Caravans', 'Hamilton 17ft', 'Imported', 67000, 'https://www.retreatcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'Mid-range imported option, modern features', 'Check for family bunk layouts', false),
+('Retreat Caravans', 'Hamilton 17ft', 'Imported', 67000, 'https://www.retreatcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'Mid-range imported option, modern features', 'Check for family bunk layouts'),
 
-('On The Move', 'BLADE 16ft Family', 'Imported', 62000, 'https://www.onthemove.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Growing brand, competitive pricing, off-road focus', 'Newer brand, research owner reviews', false),
+('On The Move', 'BLADE 16ft Family', 'Imported', 62000, 'https://www.onthemove.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Growing brand, competitive pricing, off-road focus', 'Newer brand, research owner reviews'),
 
-('Kingdom Caravans', 'Off-Road Family 17ft', 'Imported', 55000, 'https://www.kingdomcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'Budget pricing, family layouts available', 'Inspect quality carefully, lower price point', false),
+('Kingdom Caravans', 'Off-Road Family 17ft', 'Imported', 55000, 'https://www.kingdomcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'Budget pricing, family layouts available', 'Inspect quality carefully, lower price point'),
 
-('Condor Caravans', 'RV Family 16ft', 'Imported', 60000, 'https://www.condorcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Value pricing, family-focused models', 'Check build quality and warranty', false),
+('Condor Caravans', 'RV Family 16ft', 'Imported', 60000, 'https://www.condorcaravans.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'BUDGET', 'RESEARCHING', 'Value pricing, family-focused models', 'Check build quality and warranty'),
 
-('Concept Caravans', 'Ascot 17ft Family', 'Imported', 72000, 'https://www.conceptcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'European-style layouts, modern design', 'Check off-road variants, verify bunk options', false),
+('Concept Caravans', 'Ascot 17ft Family', 'Imported', 72000, 'https://www.conceptcaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'BUDGET', 'RESEARCHING', 'European-style layouts, modern design', 'Check off-road variants, verify bunk options'),
 
 -- Premium Options
-('Jayco', 'Journey Outback 17ft', 'Australian Made', 95000, 'https://www.jayco.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'PREMIUM', 'RESEARCHING', 'Premium quality, excellent reputation, family-focused', 'May exceed budget depending on options', false),
+('Jayco', 'Journey Outback 17ft', 'Australian Made', 95000, 'https://www.jayco.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'PREMIUM', 'RESEARCHING', 'Premium quality, excellent reputation, family-focused', 'May exceed budget depending on options'),
 
-('Kedron', 'ATV 16ft Family', 'Australian Made', 105000, 'https://www.kedron.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'PREMIUM', 'RESEARCHING', 'Premium Australian-made, excellent build quality', 'Likely over budget, but check compact models', false),
+('Kedron', 'ATV 16ft Family', 'Australian Made', 105000, 'https://www.kedron.com.au', '16ft', NULL, NULL, NULL, 'Queen', 2, '2x Bunks', 'PREMIUM', 'RESEARCHING', 'Premium Australian-made, excellent build quality', 'Likely over budget, but check compact models'),
 
-('JAWA Caravans', 'Outback 17ft', 'Australian Made', 95000, 'https://www.jawacaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'PREMIUM', 'RESEARCHING', 'Rugged off-road capability, Australian-made', 'Check if within budget', false);
+('JAWA Caravans', 'Outback 17ft', 'Australian Made', 95000, 'https://www.jawacaravans.com.au', '17ft', NULL, NULL, NULL, 'Queen', 2, '2x Singles', 'PREMIUM', 'RESEARCHING', 'Rugged off-road capability, Australian-made', 'Check if within budget');
 
 -- Example caravan from comparison table
-INSERT INTO caravans (make, model, origin, price, website, external_length, external_width, external_height, tare_weight, atm, ball_weight, main_bed, bunk_beds, bunk_type, priority, status, features, notes, deleted) VALUES
-('Lotus Caravans', 'Trooper 16 Example', 'Australian Made', 85000, 'https://www.lotuscaravans.com.au', '16ft (4.88m)', '7.2ft (2.2m)', '9ft (2.75m)', 1850, 2500, 220, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', '300W Solar, 200Ah AGM Battery, Single Axle', 'Example data only - verify with dealer', false);
+INSERT INTO caravans (make, model, origin, price, website, external_length, external_width, external_height, tare_weight, atm, ball_weight, main_bed, bunk_beds, bunk_type, priority, status, features, notes) VALUES
+('Lotus Caravans', 'Trooper 16 Example', 'Australian Made', 85000, 'https://www.lotuscaravans.com.au', '16ft (4.88m)', '7.2ft (2.2m)', '9ft (2.75m)', 1850, 2500, 220, 'Queen', 2, '2x Singles', 'HIGH', 'RESEARCHING', '300W Solar, 200Ah AGM Battery, Single Axle', 'Example data only - verify with dealer');

@@ -62,7 +62,12 @@
             <tbody>
                 <tr ng-repeat="caravan in filteredCaravans | orderBy:sortColumn:sortReverse">
                     <td>{{caravan.make}}</td>
-                    <td>{{caravan.model}}</td>
+                    <td>
+                        <a ng-if="caravan.website" href="{{caravan.website}}" target="_blank" class="text-decoration-none">
+                            {{caravan.model}} <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                        <span ng-if="!caravan.website">{{caravan.model}}</span>
+                    </td>
                     <td>
                         <span class="badge" ng-class="{'bg-success': caravan.origin === 'Australian Made', 'bg-info': caravan.origin === 'Imported'}">
                             {{caravan.origin}}
